@@ -1,0 +1,2931 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='CONCENTRATED FORCE', modelPrint=
+    OFF, multiprocessingMode=DEFAULT, name='CFORCE', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models.changeKey(fromName='CONCENTRATED FORCE', toName='CF_MF_v3')
+mdb.models.changeKey(fromName='GOLD_STANDARD', toName='GS_MF_c3')
+mdb.models.changeKey(fromName='GS_MF_c3', toName='GS_MF_v3')
+mdb.models.changeKey(fromName='SPHERE', toName='SPHERE_MF_v3')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['SPHERE_MF_v3'].contactControls['ContCtrl-1']
+mdb.models['SPHERE_MF_v3'].interactions['SPHERE-ENAMEL'].setValues(
+    adjustMethod=OVERCLOSED, bondingSet=None, contactControls=UNSET, 
+    enforcement=NODE_TO_SURFACE, initialClearance=OMIT, sliding=SMALL, smooth=
+    0.2, supplementaryContact=SELECTIVE, thickness=ON, tied=OFF)
+del mdb.models['GS_MF_v3'].contactControls['ContCtrl-1']
+mdb.models['GS_MF_v3'].interactions['RUBBER_ENAMEL'].setValues(adjustMethod=
+    OVERCLOSED, bondingSet=None, contactControls=UNSET, enforcement=
+    SURFACE_TO_SURFACE, initialClearance=OMIT, sliding=SMALL, 
+    supplementaryContact=SELECTIVE, thickness=ON, tied=OFF)
+mdb.models['GS_MF_v3'].interactions['RUBBER_UPPERMOLARS'].setValues(
+    adjustMethod=OVERCLOSED, bondingSet=None, contactControls=UNSET, 
+    enforcement=SURFACE_TO_SURFACE, initialClearance=OMIT, sliding=SMALL, 
+    supplementaryContact=SELECTIVE, thickness=ON, tied=OFF)
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MIDDLE_TEMPORALIS_R', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12504 #1 #0 #100000 #1000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MIDDLE_TEMPORALIS_R', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:4166 #400 #0:8331 #1000000 #0:5 #1 #0:2', ' #1000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MIDDLE_TEMPORALIS_R', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 #0:5 #800000 #0 #100000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MIDDLE_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:5970 #80 #0:3004 #2000 #0:25 #2 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MIDDLE_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:5970 #80 #0:3009 #40000000 #0:33 #80000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MIDDLE_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8978 #4 #0 #40000000 #0:33 #80000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='Set_Test_Macro', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:7639 #80000000 #0:2015 #4 ]', ), )+\
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CANCELLOUS'].nodes.getSequenceFromMask(
+    mask=('[#0:4834 #40000 ]', ), ))
+mdb.Model(name='GS_MF_v3-Copy', objectToCopy=mdb.models['GS_MF_v3'])
+mdb.models['GS_MF_v3'].loads.delete(('CFORCE-1', 'CFORCE-2', 'CFORCE-3', 
+    'CFORCE-4', 'CFORCE-5', 'CFORCE-6', 'CFORCE-7', 'CFORCE-8', 'CFORCE-9', 
+    'CFORCE-10', 'CFORCE-11', 'CFORCE-12', 'CFORCE-13', 'CFORCE-14', 
+    'CFORCE-15', 'CFORCE-16', 'CFORCE-17', 'CFORCE-18', 'CFORCE-19', 
+    'CFORCE-20', 'CFORCE-21', 'CFORCE-22', 'CFORCE-23', 'CFORCE-24', 
+    'CFORCE-25', 'CFORCE-26', 'CFORCE-27', 'CFORCE-28', 'CFORCE-29', 
+    'CFORCE-30', 'CFORCE-31', 'CFORCE-32', 'CFORCE-33', 'CFORCE-34', 
+    'CFORCE-35', 'CFORCE-36', 'CFORCE-37', 'CFORCE-38', 'CFORCE-39', 
+    'CFORCE-40', 'CFORCE-41', 'CFORCE-42', 'CFORCE-43', 'CFORCE-44', 
+    'CFORCE-45', 'CFORCE-46', 'CFORCE-47', 'CFORCE-48', 'CFORCE-49', 
+    'CFORCE-50', 'CFORCE-51', 'CFORCE-52', 'CFORCE-53', 'CFORCE-54', 
+    'CFORCE-55', 'CFORCE-56', 'CFORCE-57', 'CFORCE-58', 'CFORCE-59', 
+    'CFORCE-60', 'CFORCE-61', 'CFORCE-62', 'CFORCE-63', 'CFORCE-64', 
+    'CFORCE-65', 'CFORCE-66', 'CFORCE-67', 'CFORCE-68', 'CFORCE-69', 
+    'CFORCE-70', 'CFORCE-71', 'CFORCE-72', 'CFORCE-73', 'CFORCE-74', 
+    'CFORCE-75', 'CFORCE-76', 'CFORCE-77', 'CFORCE-78', 'CFORCE-79', 
+    'CFORCE-80', 'CFORCE-81', 'CFORCE-82', 'CFORCE-83', 'CFORCE-84', 
+    'CFORCE-85', 'CFORCE-86', 'CFORCE-87', 'CFORCE-88', 'CFORCE-89', 
+    'CFORCE-90', 'CFORCE-91', 'CFORCE-92', 'CFORCE-93', 'CFORCE-94', 
+    'CFORCE-95', 'CFORCE-96', 'CFORCE-97', 'CFORCE-98', 'CFORCE-99', 
+    'CFORCE-100', 'CFORCE-101', 'CFORCE-102', 'CFORCE-103', 'CFORCE-104', 
+    'CFORCE-105', 'CFORCE-106', 'CFORCE-107', 'CFORCE-108', 'CFORCE-109', 
+    'CFORCE-110', 'CFORCE-111', 'CFORCE-112', 'CFORCE-113', 'CFORCE-114', 
+    'CFORCE-115', 'CFORCE-116', 'CFORCE-117', 'CFORCE-118', 'CFORCE-119', 
+    'CFORCE-120', 'CFORCE-121', 'CFORCE-122', 'CFORCE-123', 'CFORCE-124', 
+    'CFORCE-125', 'CFORCE-126', 'CFORCE-127', 'CFORCE-128', 'CFORCE-129', 
+    'CFORCE-130', 'CFORCE-131', 'CFORCE-132', 'CFORCE-133', 'CFORCE-134', 
+    'CFORCE-135', 'CFORCE-136', 'CFORCE-137', 'CFORCE-138', 'CFORCE-139', 
+    'CFORCE-140'))
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-0.211878, cf2=-0.06257, cf3=
+    1.404936, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=None, name='CF_1_AT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.1706795, cf2=-0.050402, cf3=
+    1.131754, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=None, name='CF_1_AT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.162018, cf2=2.629, cf3=4.400946
+    , createStepName='loading_step1', distributionType=UNIFORM, field='', 
+    localCsys=None, name='CF_1_MT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MIDDLE_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.179624333, cf2=2.668833333, cf3=
+    4.467627, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=None, name='CF_1_MT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MIDDLE_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-0.386568, cf2=1.5890175, cf3=
+    0.880929, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=None, name='CF_1_PT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['POSTERIOR_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.255528, cf2=1.0503675, cf3=
+    0.582309, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=None, name='CF_1_PT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['POSTERIOR_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.336608, cf2=0.876384, cf3=
+    1.855584, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=None, name='CF_1_DAM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['GS_MF_v3'].loads['CF_1_AT_L'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].loads['CF_1_AT_R'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].loads['CF_1_DAM_R'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].loads['CF_1_PT_L'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].loads['CF_1_PT_R'].setValues(distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.11384, cf2=0.73032, cf3=1.54632, 
+    createStepName='loading_step1', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_DAM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.336608, cf2=0.876384, cf3=
+    1.855584, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_DPM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.11384, cf2=0.73032, cf3=1.54632, 
+    createStepName='loading_step1', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_DPM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-0.3547152, cf2=-0.7179984, cf3=
+    1.516536, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_SM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.295596, cf2=-0.598332, cf3=
+    1.26378, createStepName='loading_step1', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_SM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.79025625, cf2=-0.949561875, cf3=
+    -0.21826125, createStepName='loading_step1', distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_ILP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.712221875, cf2=-2.057384063, 
+    cf3=-0.472899375, createStepName='loading_step1', distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_ILP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.36504375, cf2=-1.15696875, cf3=
+    0.1327375, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_SLP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.36504375, cf2=-1.15696875, cf3=
+    0.1327375, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_SLP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.486674, cf2=-1.137948, cf3=
+    2.419669, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_MP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.06191, cf2=-0.81282, cf3=
+    1.728335, createStepName='loading_step1', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_1_MP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-0.423756, cf2=-0.125136, cf3=
+    2.809872, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_AT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.341359, cf2=-0.100804, cf3=
+    2.263508, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_AT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-2.324036, cf2=5.258, cf3=8.801892
+    , createStepName='loading_step2', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name='CF_2_MT_R'
+    , region=mdb.models['GS_MF_v3'].rootAssembly.sets['MIDDLE_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=2.359248667, cf2=5.337666667, cf3=
+    8.935254, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_MT_2', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MIDDLE_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-0.773136, cf2=3.178035, cf3=
+    1.761858, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_PT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['POSTERIOR_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.511056, cf2=2.100735, cf3=
+    1.164618, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_PT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['POSTERIOR_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-2.673216, cf2=1.752768, cf3=
+    3.711168, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_DAM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=2.22768, cf2=1.46064, cf3=3.09264, 
+    createStepName='loading_step2', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_DAM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-2.673216, cf2=1.752768, cf3=
+    3.711168, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_DPM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=2.22768, cf2=1.46064, cf3=3.09264, 
+    createStepName='loading_step2', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_DPM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.5805125, cf2=-1.89912375, cf3=
+    -0.4365225, createStepName='loading_step2', distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_SM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.591192, cf2=-1.196664, cf3=
+    2.52756, createStepName='loading_step2', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_SM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['GS_MF_v3'].loads['CF_2_SM_R'].setValues(cf1=-0.7094304, cf2=
+    -1.4359968, cf3=3.033072, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.5805125, cf2=-1.89912375, cf3=
+    -0.4365225, createStepName='loading_step2', distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_ILP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-3.42444375, cf2=-4.114768125, 
+    cf3=-0.94579875, createStepName='loading_step2', distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_ILP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=2.7300875, cf2=-2.3139375, cf3=
+    0.265475, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_SLP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-2.7300875, cf2=-2.3139375, cf3=
+    0.265475, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_SLP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=2.973348, cf2=-2.275896, cf3=
+    4.839338, createStepName='loading_step2', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_MP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-2.12382, cf2=-1.62564, cf3=
+    3.45667, createStepName='loading_step2', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_2_MP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-0.847512, cf2=-0.250272, cf3=
+    5.619744, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_AT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=0.682718, cf2=-0.201608, cf3=
+    4.527016, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_AT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-4.648072, cf2=10.516, cf3=
+    17.603784, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_MT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MIDDLE_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=4.718497333, cf2=10.67533333, cf3=
+    17.870508, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_MT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MIDDLE_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.546272, cf2=6.35607, cf3=
+    3.523716, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_PT_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['POSTERIOR_TEMPORALIS_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.022112, cf2=4.20147, cf3=
+    2.329236, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_PT_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['POSTERIOR_TEMPORALIS_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-5.346432, cf2=3.505536, cf3=
+    7.422336, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_DAM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=4.45536, cf2=2.92128, cf3=6.18528, 
+    createStepName='loading_step3', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_DAM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-5.346432, cf2=3.505536, cf3=
+    7.422336, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_DPM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=4.45536, cf2=2.92128, cf3=6.18528, 
+    createStepName='loading_step3', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_DPM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-1.4188608, cf2=-2.8719936, cf3=
+    6.066144, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_SM_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=1.182384, cf2=-2.393328, cf3=
+    5.05512, createStepName='loading_step3', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_SM_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=3.161025, cf2=-3.7982475, cf3=
+    -0.873045, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_ILP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-6.8488875, cf2=-8.22953625, cf3=
+    -1.8915975, createStepName='loading_step3', distributionType=UNIFORM, 
+    field='', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_ILP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=5.460175, cf2=-4.627875, cf3=
+    0.53095, createStepName='loading_step3', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_SLP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-5.460175, cf2=-4.627875, cf3=
+    0.53095, createStepName='loading_step3', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_SLP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=5.946696, cf2=-4.551792, cf3=
+    9.678676, createStepName='loading_step3', distributionType=UNIFORM, field=
+    '', localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_MP_R', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf1=-4.24764, cf2=-3.25128, cf3=
+    6.91334, createStepName='loading_step3', distributionType=UNIFORM, field=''
+    , localCsys=mdb.models['GS_MF_v3'].rootAssembly.datums[107], name=
+    'CF_3_MP_L', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['GS_MF_v3'].ConcentratedForce(cf2=222.0, createStepName=
+    'loading_step1', distributionType=UNIFORM, field='', localCsys=None, name=
+    'Load-55', region=
+    mdb.models['GS_MF_v3'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+del mdb.models['GS_MF_v3'].loads['Load-55']
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_MF_v3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['CF_MF_v3'].rootAssembly.regenerate()
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+del mdb.jobs['GS_MF_v3']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_MF_v3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+mdb.models['GS_MF_v3'].parts['MANDIBLE_CORTICAL'].Set(name='Set-2', nodes=
+    mdb.models['GS_MF_v3'].parts['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8973 #4000 #0:4 #2000000 #0:22 #2 ]', ), ))
+mdb.models['GS_MF_v3'].parts['MANDIBLE_CORTICAL'].sets.changeKey(fromName=
+    'Set-2', toName='Test_Set')
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+mdb.models.changeKey(fromName='GS_MF_v3-Copy', toName='GS_MF_v3-Backup')
+mdb.Model(name='GS_MF_v3-Copy', objectToCopy=mdb.models['GS_MF_v3'])
+mdb.models['GS_MF_v3-Copy'].rootAssembly.Set(name='POSTERIOR_TEMPORALIS_R', 
+    nodes=
+    mdb.models['GS_MF_v3-Copy'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:4160 #2000 #0 #10 #0 #10000 #0:26', 
+    ' #800 #0:46 #1 #0:8262 #8000000 #0:24 #2000', 
+    ' #0:6 #10000 #0:69 #1000 ]', ), ))
+del mdb.models['GS_MF_v3-Copy'].rootAssembly.sets['MIDDLE_TEMPORALIS_R']
+del mdb.models['GS_MF_v3-Copy'].rootAssembly.sets['MIDDLE_TEMPORALIS_L']
+mdb.models['GS_MF_v3-Copy'].loads.delete(('CF_1_MT_L', 'CF_1_MT_R'))
+mdb.models['GS_MF_v3-Copy'].loads.delete(('CF_2_MT_2', 'CF_2_MT_R'))
+mdb.models['GS_MF_v3-Copy'].loads.delete(('CF_3_MT_L', 'CF_3_MT_R'))
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3-Copy', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Test_GS_MF_v3', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='POSTERIOR_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:595 #1 #0:12 #1 #0:14 #80000 #400000', 
+    ' #0 #10000 #0:14 #400 #0:8336 #4 #0', ' #40000000 #0:33 #80000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.features['RIGHT_FOSSA'].suppress()
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='POSTERIOR_TEMPORALIS_R', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:4160 #2000 #0 #10 #0 #10000 #0:26', 
+    ' #800 #0:46 #1 #0:8242 #1000000 #0:20 #10000', ' #0:6 #800 #0:93 #1000 ]', 
+    ), ))
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_MF_v3-2', nodalOutputPrecision=SINGLE
+    , numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['GS_MF_v3'].rootAssembly.features['RIGHT_FOSSA'].resume()
+mdb.models['GS_MF_v3'].parts['MANDIBLE_CORTICAL'].checkGeometry()
+mdb.models['GS_MF_v3'].parts['MANDIBLE_CORTICAL'].Set(name='Set-3', nodes=
+    mdb.models['GS_MF_v3'].parts['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#ffffffff:13131 #7fffffff ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='Set-42', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:9014 #80000 ]', ), ))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['Set-42'])
+mdb.models['GS_MF_v3'].loads.changeKey(fromName='CF_1_MT_L', toName=
+    'CF_1_MT_L_1')
+mdb.models['GS_MF_v3'].Load(name='CF_1_MT_L_2', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_1_MT_L_1'], toStepName='loading_step1')
+mdb.models['GS_MF_v3'].Load(name='CF_1_MT_L_3', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_1_MT_L_1'], toStepName='loading_step1')
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='Set-43', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8980 #40000000 ]', ), ))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['Set-43'])
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='Set-44', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8978 #4 ]', ), ))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['Set-44'])
+mdb.models['GS_MF_v3'].rootAssembly.sets.changeKey(fromName='Set-42', toName=
+    'MT_L_1')
+mdb.models['GS_MF_v3'].rootAssembly.sets.changeKey(fromName='Set-43', toName=
+    'MT_L_2')
+mdb.models['GS_MF_v3'].rootAssembly.sets.changeKey(fromName='Set-44', toName=
+    'MT_L_3')
+mdb.models['GS_MF_v3'].Load(name='CF_1_MT_R_2', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_1_MT_R'], toStepName='loading_step1')
+mdb.models['GS_MF_v3'].Load(name='CF_1_MT_R_3', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_1_MT_R_2'], toStepName='loading_step1')
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MT_3_1', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 ]', ), ))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_3_1'])
+mdb.models['GS_MF_v3'].loads.changeKey(fromName='CF_1_MT_R', toName=
+    'CF_1_MT_R_1')
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MT_R_2', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12504 #800000 ]', ), ))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_2'])
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='MT_R_3', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12506 #100000 ]', ), ))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_3'])
+mdb.models['GS_MF_v3'].rootAssembly.sets.changeKey(fromName='MT_3_1', toName=
+    'MT_R_1')
+mdb.models['GS_MF_v3'].Load(name='CF_2_MT_L_2', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_2_MT_2'], toStepName='loading_step2')
+mdb.models['GS_MF_v3'].loads.changeKey(fromName='CF_2_MT_2', toName=
+    'CF_2_MT_L_1')
+mdb.models['GS_MF_v3'].Load(name='CF_2_MT_L_3', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_2_MT_L_1'], toStepName='loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_1'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_1'])
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_2'])
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_3'])
+mdb.models['GS_MF_v3'].loads.changeKey(fromName='CF_2_MT_R', toName=
+    'CF_2_MT_R_1')
+mdb.models['GS_MF_v3'].Load(name='CF_2_MT_R_2', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_2_MT_R_1'], toStepName='loading_step2')
+mdb.models['GS_MF_v3'].Load(name='CF_2_MT_R_3', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_2_MT_R_1'], toStepName='loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_1'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_1'])
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_2'])
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_3'])
+mdb.models['GS_MF_v3'].loads.changeKey(fromName='CF_3_MT_L', toName=
+    'CF_3_MT_L_1')
+mdb.models['GS_MF_v3'].Load(name='CF_3_MT_L_2', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_3_MT_L_1'], toStepName='loading_step3')
+mdb.models['GS_MF_v3'].Load(name='CF_3_MT_L_3', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_3_MT_L_2'], toStepName='loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_3_MT_L_1'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_1'])
+mdb.models['GS_MF_v3'].loads['CF_3_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_2'])
+mdb.models['GS_MF_v3'].loads['CF_3_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_3'])
+mdb.models['GS_MF_v3'].loads.changeKey(fromName='CF_3_MT_R', toName=
+    'CF_3_MT_R_1')
+mdb.models['GS_MF_v3'].Load(name='CF_3_MT_R_2', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_3_MT_R_1'], toStepName='loading_step3')
+mdb.models['GS_MF_v3'].Load(name='CF_3_MT_R_3', objectToCopy=
+    mdb.models['GS_MF_v3'].loads['CF_3_MT_R_1'], toStepName='loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_3_MT_R_1'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_1'])
+mdb.models['GS_MF_v3'].loads['CF_3_MT_R_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_2'])
+mdb.models['GS_MF_v3'].loads['CF_3_MT_R_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_3'])
+mdb.models['GS_MF_v3'].rootAssembly.deleteSets(setNames=('MIDDLE_TEMPORALIS_L', 
+    'MIDDLE_TEMPORALIS_R'))
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='POSTERIOR_TEMPORALIS_R', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:4160 #2000 #0 #10 #0 #10000 #0:26', 
+    ' #800 #0:46 #1 #0:8364 #1000 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.Set(name='POSTERIOR_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:595 #1 #0:12 #1 #0:14 #80000 #400000', 
+    ' #0 #10000 #0:14 #400 ]', ), ))
+mdb.models['GS_MF_v3'].rootAssembly.regenerate()
+del mdb.jobs['GS_MF_v3-2']
+del mdb.jobs['GS_MF_v3']
+del mdb.jobs['Test_GS_MF_v3']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_MF_v3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_1'].resume()
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_1'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_1'])
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_2'])
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_L_3'])
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_1'].setValues(distributionType=UNIFORM, 
+    field='', region=mdb.models['GS_MF_v3'].rootAssembly.sets['MT_R_1'])
+mdb.jobs['GS_MF_v3'].submit(consistencyChecking=OFF)
+mdb.jobs['GS_MF_v3']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Arbeit', 'handle': 0, 'jobName': 'GS_MF_v3'})
+mdb.jobs['GS_MF_v3']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'jobName': 'GS_MF_v3'})
+mdb.jobs['GS_MF_v3']._Message(INTERRUPTED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis interrupted by external signal', 
+    'jobName': 'GS_MF_v3'})
+mdb.jobs['GS_MF_v3']._Message(ERROR, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'GS_MF_v3'})
+mdb.jobs['GS_MF_v3']._Message(JOB_ABORTED, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'GS_MF_v3'})
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_1'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:9014 #80000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8980 #40000000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8978 #4 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_1'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_2'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12504 #800000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_3'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12506 #100000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_1'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:9014 #80000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8980 #40000000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8978 #4 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_1'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_2'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12504 #800000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_3'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12506 #100000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_3_MT_L_1'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:9014 #80000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_3_MT_L_2'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8980 #40000000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_3_MT_L_3'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8978 #4 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_3_MT_R_1'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_3_MT_R_2'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12504 #800000 ]', ), )))
+mdb.models['GS_MF_v3'].loads['CF_3_MT_R_3'].setValues(distributionType=UNIFORM, 
+    field='', region=Region(
+    nodes=mdb.models['GS_MF_v3'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12506 #100000 ]', ), )))
+mdb.Model(name='GS_MF_v3-2', objectToCopy=mdb.models['GS_MF_v3'])
+mdb.models['GS_MF_v3-Copy'].setValues(description=
+    "Model with new MT muscle sets that didn't work, as the Pre-Processor can't import the new sets.")
+mdb.models['GS_MF_v3-2'].setValues(description=
+    'The CFORCES are amplified at different node sets for the MT muscle.')
+mdb.Model(name='GS_MF_v3-Test-2', objectToCopy=mdb.models['GS_MF_v3'])
+mdb.models['GS_MF_v3-Test-2'].rootAssembly.deleteSets(setNames=('MT_L_1', 
+    'MT_L_2', 'MT_L_3', 'MT_R_1', 'MT_R_2', 'MT_R_3'))
+mdb.models['GS_MF_v3-Test-2'].loads.delete(('CF_1_MT_L_1', 'CF_1_MT_L_2', 
+    'CF_1_MT_L_3', 'CF_1_MT_R_1', 'CF_1_MT_R_2', 'CF_1_MT_R_3'))
+mdb.models['GS_MF_v3-Test-2'].loads.delete(('CF_2_MT_L_1', 'CF_2_MT_L_2', 
+    'CF_2_MT_L_3', 'CF_2_MT_R_1', 'CF_2_MT_R_2', 'CF_2_MT_R_3'))
+mdb.models['GS_MF_v3-Test-2'].loads.delete(('CF_3_MT_L_1', 'CF_3_MT_L_2', 
+    'CF_3_MT_L_3', 'CF_3_MT_R_1', 'CF_3_MT_R_2', 'CF_3_MT_R_3'))
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3-Test-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_MF_v3-Test-2', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+del mdb.models['GS_MF_v3-Test-2']
+mdb.ModelFromInputFile(inputFileName=
+    'E:/Studienarbeit/Job_Files/GS_MF_v3-Test-2.2.inp', name='GS_MF_v3-Test-2')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_MF_v3'].loads['CF_1_AT_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_AT_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_DAM_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_DAM_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_DPM_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_DPM_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_ILP_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_ILP_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MP_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MP_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_1'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_2'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MT_L_3'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_1'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_2'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_MT_R_3'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_PT_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_PT_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_SLP_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_SLP_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_SM_L'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_1_SM_R'].deactivate('loading_step2')
+mdb.models['GS_MF_v3'].loads['CF_2_AT_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_AT_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_DAM_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_DAM_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_DPM_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_DPM_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_ILP_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_ILP_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MP_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MP_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_1'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_2'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_L_3'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_1'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_2'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_MT_R_3'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_PT_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_PT_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_SLP_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_SLP_R'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_SM_L'].deactivate('loading_step3')
+mdb.models['GS_MF_v3'].loads['CF_2_SM_R'].deactivate('loading_step3')
+mdb.Model(name='GS_MF_v3_New-Nodes', objectToCopy=mdb.models['GS_MF_v3'])
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.SetByBoolean(name='Set-33', sets=
+    (mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_L_1'], 
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_L_2'], 
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_L_3']))
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets.changeKey(fromName='Set-33', 
+    toName='MT_L')
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.deleteSets(setNames=('MT_L_1', 
+    'MT_L_2', 'MT_L_3'))
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.SetByBoolean(name='MT_R', sets=(
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_R_1'], 
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_R_2'], 
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_R_3']))
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.deleteSets(setNames=('MT_R_1', 
+    'MT_R_2', 'MT_R_3'))
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.Set(name='MT_L', nodes=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:9012 #400 #0:12 #8000000 #0:41 #200 ]', ), ))
+mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.Set(name='MT_R', nodes=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12530 #400000 #0:4 #4000000 #0:8 #40000000 ]', ), ))
+mdb.models['GS_MF_v3_New-Nodes'].loads.delete(('CF_1_MT_L_2', 'CF_1_MT_L_3', 
+    'CF_1_MT_R_1', 'CF_1_MT_R_2'))
+mdb.models['GS_MF_v3_New-Nodes'].loads.changeKey(fromName='CF_1_MT_L_1', 
+    toName='CF_1_MT_L')
+mdb.models['GS_MF_v3_New-Nodes'].loads.changeKey(fromName='CF_1_MT_R_3', 
+    toName='CF_1_MT_R')
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_1_MT_L'].setValues(distributionType=
+    UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_1_MT_R'].setValues(distributionType=
+    UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_R'])
+mdb.models['GS_MF_v3_New-Nodes'].loads.delete(('CF_3_MT_L_2', 'CF_3_MT_L_3', 
+    'CF_3_MT_R_1', 'CF_3_MT_R_2'))
+mdb.models['GS_MF_v3_New-Nodes'].loads.changeKey(fromName='CF_3_MT_L_1', 
+    toName='CF_3_MT_L')
+mdb.models['GS_MF_v3_New-Nodes'].loads.changeKey(fromName='CF_3_MT_R_3', 
+    toName='CF_3_MT_R')
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_3_MT_L'].setValues(distributionType=
+    UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_3_MT_R'].setValues(distributionType=
+    UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_R'])
+mdb.models['GS_MF_v3_New-Nodes'].loads.delete(('CF_2_MT_L_2', 'CF_2_MT_L_3', 
+    'CF_2_MT_R_1', 'CF_2_MT_R_2'))
+mdb.models['GS_MF_v3_New-Nodes'].loads.changeKey(fromName='CF_2_MT_L_1', 
+    toName='CF_2_MT_L')
+mdb.models['GS_MF_v3_New-Nodes'].loads.changeKey(fromName='CF_2_MT_R_3', 
+    toName='CF_2_MT_R')
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_2_MT_L'].setValues(distributionType=
+    UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_2_MT_R'].setValues(distributionType=
+    UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_New-Nodes'].rootAssembly.sets['MT_R'])
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3_New-Nodes', modelPrint=
+    OFF, multiprocessingMode=DEFAULT, name='GS_MF_v3_New-Nodes', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_MF_v3_New-Nodes'].setValues(description=
+    'Model with new Nodes picked for the node sets. Also the subsequent steps in the CF were deactivated')
+mdb.Model(name='GS_MF_v3_New-Set', objectToCopy=
+    mdb.models['GS_MF_v3_New-Nodes'])
+mdb.models['GS_MF_v3_New-Set'].rootAssembly.deleteSets(setNames=('MT_L', 
+    'MT_R'))
+mdb.models['GS_MF_v3_New-Set'].loads.delete(('CF_2_MT_R', 'CF_2_MT_L', 
+    'CF_1_MT_L', 'CF_1_MT_R'))
+mdb.models['GS_MF_v3_New-Set'].loads.delete(('CF_3_MT_L', 'CF_3_MT_R'))
+mdb.models['GS_MF_v3_New-Set'].rootAssembly.Set(name='MT_L', nodes=
+    mdb.models['GS_MF_v3_New-Set'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8944 #40 #0:23 #100000 #0:45 #80000 ]', ), ))
+mdb.models['GS_MF_v3_New-Set'].rootAssembly.Set(name='MT_R', nodes=
+    mdb.models['GS_MF_v3_New-Set'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 #0:8 #400000 #0:19 #10 ]', ), ))
+mdb.models['GS_MF_v3_New-Set'].ConcentratedForce(cf1=1.0, cf2=1.0, cf3=1.0, 
+    createStepName='loading_step1', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3_New-Set'].rootAssembly.datums[107], name=
+    'Test_1', region=mdb.models['GS_MF_v3_New-Set'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_New-Set'].ConcentratedForce(cf1=1.0, cf2=1.0, cf3=1.0, 
+    createStepName='loading_step1', distributionType=UNIFORM, field='', 
+    localCsys=mdb.models['GS_MF_v3_New-Set'].rootAssembly.datums[107], name=
+    'Test_2', region=mdb.models['GS_MF_v3_New-Set'].rootAssembly.sets['MT_R'])
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3_New-Set', modelPrint=OFF
+    , multiprocessingMode=DEFAULT, name='GS_New-Set', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.Model(name='GS_MF_v3_Combined-Sets', objectToCopy=
+    mdb.models['GS_MF_v3_New-Set'])
+mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.Set(name='MT_L', nodes=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8944 #40 #0:23 #100000 #0:45 #80000 ]', ), ))
+mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.Set(name='MT_L', nodes=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:8944 #40 #0:23 #100000 #0:6 #2000 #0:38', ' #80000 ]', ), ))
+mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.Set(name=
+    'POSTERIOR_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:595 #1 #0:12 #1 #0:14 #80000 #0:2', ' #10000 #0:14 #400 ]', ), 
+    ))
+mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.Set(name=
+    'POSTERIOR_TEMPORALIS_L', nodes=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:595 #1 #0:12 #1 #0:14 #80000 #0:2', 
+    ' #10000 #0:14 #400 #0:11861 #40 ]', ), ))
+mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.Set(name='MT_R', nodes=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:12498 #1000000 #0:4 #40 #0:3 #400000 #0:19', ' #10 ]', ), ))
+mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.Set(name=
+    'POSTERIOR_TEMPORALIS_R', nodes=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.instances['MANDIBLE_CORTICAL'].nodes.getSequenceFromMask(
+    mask=('[#0:4160 #2000 #0:3 #10000 #0:26 #800 #0:46', ' #1 #0:8364 #1000 ]', 
+    ), ))
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3_Combined-Sets', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name='GS_MF_v3_Combined-Set', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.models['GS_MF_v3_Combined-Sets'].loads.delete(('Test_1', 'Test_2'))
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=0.88471825, cf2=
+    2.001625, cf3=3.35072025, createStepName='loading_step1', distributionType=
+    UNIFORM, field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_1_MT_L', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=-0.8715135, cf2=
+    1.97175, cf3=3.3007095, createStepName='loading_step1', distributionType=
+    UNIFORM, field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_1_MT_R', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_R'])
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_1_MT_L'].deactivate(
+    'loading_step2')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_1_MT_R'].deactivate(
+    'loading_step2')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_1_PT_L'].setValues(cf1=0.3066336
+    , cf2=1.260441, cf3=0.6987708, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_1_PT_R'].setValues(cf1=
+    -0.4638816, cf2=1.906821, cf3=1.0571148, distributionType=UNIFORM, field=
+    '')
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=1.7694365, cf2=
+    4.00325, cf3=6.7014405, createStepName='loading_step1', distributionType=
+    UNIFORM, field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_2_MT_L', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=-1.743027, cf2=
+    3.9435, cf3=6.601419, createStepName='loading_step1', distributionType=
+    UNIFORM, field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_2_MT_R', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_R'])
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_MT_L'].deactivate(
+    'loading_step2')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_MT_R'].deactivate(
+    'loading_step2')
+del mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_MT_L']
+del mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_MT_R']
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=1.7694365, cf2=
+    4.00325, cf3=6.7014405, createStepName='loading_step2', distributionType=
+    UNIFORM, field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_2_MT_L', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=-1.743027, cf2=
+    3.9435, cf3=6.601419, createStepName='loading_step2', distributionType=
+    UNIFORM, field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_2_MT_R', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_R'])
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_MT_L'].deactivate(
+    'loading_step3')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_MT_R'].deactivate(
+    'loading_step3')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_PT_L'].setValues(cf1=0.6132672
+    , cf2=2.520882, cf3=1.3975416, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_2_PT_R'].setValues(cf1=
+    -0.9277632, cf2=3.813642, cf3=2.1142296, distributionType=UNIFORM, field=
+    '')
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=3.538873, cf2=8.0065
+    , cf3=13.402881, createStepName='loading_step3', distributionType=UNIFORM, 
+    field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_3_MT_L', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_L'])
+mdb.models['GS_MF_v3_Combined-Sets'].ConcentratedForce(cf1=-3.486054, cf2=7.887
+    , cf3=13.202838, createStepName='loading_step3', distributionType=UNIFORM, 
+    field='', localCsys=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.datums[107], name=
+    'CF_3_MF_R', region=
+    mdb.models['GS_MF_v3_Combined-Sets'].rootAssembly.sets['MT_R'])
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_3_PT_L'].setValues(cf1=1.2265344
+    , cf2=5.041764, cf3=2.7950832, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v3_Combined-Sets'].loads['CF_3_PT_R'].setValues(cf1=
+    -1.8555264, cf2=7.627284, cf3=4.2284592, distributionType=UNIFORM, field=
+    '')
+del mdb.jobs['GS_MF_v3_Combined-Set']
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_1_DAM_R'].setValues(cf2=-0.876384, 
+    distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v3_New-Nodes'].loads['CF_1_DAM_R'].setValues(cf2=0.876384, 
+    distributionType=UNIFORM, field='')
+mdb.Model(name='GS_MF_v3_nMT-Nodes_9-7', objectToCopy=
+    mdb.models['GS_MF_v3_New-Nodes'])
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3_nMT-Nodes_9-7', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name='GS_MF_v3_nMT-N_9-7', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.Model(name='GS_MF_v3_MT_PT_combined_9-7', objectToCopy=
+    mdb.models['GS_MF_v3_nMT-Nodes_9-7'])
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v3_MT_PT_combined_9-7', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name=
+    'GS_MF_v3_MT-PT-combined_9-7', nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.delete(('CF_1_MT_L', 
+    'CF_1_MT_R', 'CF_2_MT_L', 'CF_2_MT_R'))
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.delete(('CF_3_MT_L', 
+    'CF_3_MT_R'))
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.deleteSets(setNames=(
+    'MT_R', 'MT_L'))
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets.changeKey(fromName=
+    'POSTERIOR_TEMPORALIS_L', toName='MT/PT_L')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets.changeKey(fromName=
+    'POSTERIOR_TEMPORALIS_R', toName='MT/PT_R')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.changeKey(fromName='CF_1_PT_L', 
+    toName='CF_1_MT/PT_L')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.changeKey(fromName='CF_1_PT_R', 
+    toName='CF_1_MT/PT_R')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.changeKey(fromName='CF_2_PT_L', 
+    toName='CF_2_MT/PT_L')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.changeKey(fromName='CF_2_PT_R', 
+    toName='CF_2_MT/PT_R')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.changeKey(fromName='CF_3_PT_L', 
+    toName='CF_3_MT/PT_L')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads.changeKey(fromName='CF_3_PT_R', 
+    toName='CF_3_MT/PT_R')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_1_MT/PT_L'].setValues(cf1=
+    0.835978, cf2=2.640443333, cf3=2.554702, distributionType=UNIFORM, field=''
+    , region=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets['MT/PT_L'])
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_1_MT/PT_R'].setValues(cf1=
+    -0.96256875, cf2=3.04028125, cf3=2.94155625, distributionType=UNIFORM, 
+    field='', region=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets['MT/PT_R'])
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_2_MT/PT_L'].setValues(cf1=
+    1.671956, cf2=5.280886667, cf3=5.109404, distributionType=UNIFORM, field=''
+    , region=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets['MT/PT_L'])
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_2_MT/PT_R'].setValues(cf1=
+    -1.9251375, cf2=6.0805625, cf3=5.8831125, distributionType=UNIFORM, field=
+    '')
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_3_MT/PT_L'].setValues(cf1=
+    3.343912, cf2=10.56177333, cf3=10.218808, distributionType=UNIFORM, field=
+    '', region=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets['MT/PT_L'])
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_3_MT/PT_R'].setValues(cf1=
+    -3.850275, cf2=12.161125, cf3=11.766225, distributionType=UNIFORM, field=''
+    , region=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets['MT/PT_R'])
+mdb.models['GS_MF_v3_MT_PT_combined_9-7'].loads['CF_2_MT/PT_R'].setValues(
+    distributionType=UNIFORM, field='', region=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'].rootAssembly.sets['MT/PT_R'])
+mdb.Model(name='GS_MF_v4_MT_PT_combined_10-7', objectToCopy=
+    mdb.models['GS_MF_v3_MT_PT_combined_9-7'])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].fieldOutputRequests['F-Output-1'].setValues(
+    frequency=10)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].fieldOutputRequests['F-Output-2'].setValues(
+    frequency=10)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].fieldOutputRequests['F-Output-3'].setValues(
+    frequency=10)
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_MF_v4_MT_PT_combined_10-7', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name=
+    'GS_MF_v4_MT-PT-combined_10-7', nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.Model(name='CF_MF_v4_MT-PT-combined', objectToCopy=mdb.models['CF_MF_v3'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads.delete(('CFORCE-1', 'CFORCE-2', 
+    'CFORCE-3', 'CFORCE-4', 'CFORCE-5', 'CFORCE-6', 'CFORCE-7', 'CFORCE-8', 
+    'CFORCE-9', 'CFORCE-10', 'CFORCE-11', 'CFORCE-12', 'CFORCE-13', 
+    'CFORCE-14', 'CFORCE-15', 'CFORCE-16', 'CFORCE-17', 'CFORCE-18', 
+    'CFORCE-19', 'CFORCE-20', 'CFORCE-21', 'CFORCE-22', 'CFORCE-23', 
+    'CFORCE-24', 'CFORCE-25', 'CFORCE-26', 'CFORCE-27', 'CFORCE-28', 
+    'CFORCE-29', 'CFORCE-30', 'CFORCE-31', 'CFORCE-32', 'CFORCE-33', 
+    'CFORCE-34', 'CFORCE-35', 'CFORCE-36', 'CFORCE-37', 'CFORCE-38', 
+    'CFORCE-39', 'CFORCE-40', 'CFORCE-41', 'CFORCE-42', 'CFORCE-43', 
+    'CFORCE-44', 'CFORCE-45', 'CFORCE-46', 'CFORCE-47', 'CFORCE-48', 
+    'CFORCE-49', 'CFORCE-50', 'CFORCE-51', 'CFORCE-52', 'CFORCE-53', 
+    'CFORCE-54', 'CFORCE-55', 'CFORCE-56', 'CFORCE-57', 'CFORCE-58', 
+    'CFORCE-59', 'CFORCE-60', 'CFORCE-61', 'CFORCE-62', 'CFORCE-63', 
+    'CFORCE-64', 'CFORCE-65', 'CFORCE-66', 'CFORCE-67', 'CFORCE-68', 
+    'CFORCE-69', 'CFORCE-70', 'CFORCE-71', 'CFORCE-72', 'CFORCE-73', 
+    'CFORCE-74', 'CFORCE-75', 'CFORCE-76', 'CFORCE-77', 'CFORCE-78', 
+    'CFORCE-79', 'CFORCE-80', 'CFORCE-81', 'CFORCE-82', 'CFORCE-83', 
+    'CFORCE-84', 'CFORCE-85', 'CFORCE-86', 'CFORCE-87', 'CFORCE-88', 
+    'CFORCE-89', 'CFORCE-90', 'CFORCE-91', 'CFORCE-92', 'CFORCE-93', 
+    'CFORCE-94', 'CFORCE-95', 'CFORCE-96', 'CFORCE-97', 'CFORCE-98', 
+    'CFORCE-99', 'CFORCE-100', 'CFORCE-101', 'CFORCE-102', 'CFORCE-103', 
+    'CFORCE-104', 'CFORCE-105', 'CFORCE-106', 'CFORCE-107', 'CFORCE-108', 
+    'CFORCE-109', 'CFORCE-110', 'CFORCE-111', 'CFORCE-112', 'CFORCE-113', 
+    'CFORCE-114', 'CFORCE-115', 'CFORCE-116', 'CFORCE-117', 'CFORCE-118', 
+    'CFORCE-119', 'CFORCE-120', 'CFORCE-121', 'CFORCE-122', 'CFORCE-123', 
+    'CFORCE-124', 'CFORCE-125', 'CFORCE-126', 'CFORCE-127', 'CFORCE-128', 
+    'CFORCE-129', 'CFORCE-130', 'CFORCE-131', 'CFORCE-132', 'CFORCE-133', 
+    'CFORCE-134', 'CFORCE-135', 'CFORCE-136', 'CFORCE-137', 'CFORCE-138', 
+    'CFORCE-139', 'CFORCE-140'))
+mdb.models['CF_MF_v4_MT-PT-combined'].fieldOutputRequests['F-Output-1'].setValues(
+    frequency=10)
+mdb.models['CF_MF_v4_MT-PT-combined'].fieldOutputRequests['F-Output-2'].setValues(
+    frequency=10)
+mdb.models['CF_MF_v4_MT-PT-combined'].fieldOutputRequests['F-Output-3'].setValues(
+    frequency=10)
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.267170669, cf2=
+    -0.078896037, cf3=1.77157464, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'Load-4CF_1_AT_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads.changeKey(fromName=
+    'Load-4CF_1_AT_R', toName='CF_1_AT_R')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_AT_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.215220817, cf2=
+    -0.063555141, cf3=1.427101793, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_AT_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_AT_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.213765173, cf2=
+    4.838084954, cf3=2.682166396, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MT+PT', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['POSTERIOR_TEMPORALIS_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_MT+PT'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.022195114, cf2=
+    4.201811646, cf3=2.329425404, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_PT_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['POSTERIOR_TEMPORALIS_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_PT_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.685415447, cf2=
+    1.105089249, cf3=2.33982584, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DAM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DAM_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.404512872, cf2=
+    0.920907708, cf3=1.949854867, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DAM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DAM_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads.changeKey(fromName='CF_1_PT_L', 
+    toName='CF_1_MT+PT_L')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.685415447, cf2=
+    1.105089249, cf3=2.33982584, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DPM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DPM_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.404512872, cf2=
+    0.920907708, cf3=1.949854867, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DPM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DPM_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.372736108, cf2=
+    -0.754475505, cf3=1.593581913, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_SM_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DAM_L'].setValues(cf1=
+    1.404512872, cf2=0.920907708, cf3=1.949854867, distributionType=UNIFORM, 
+    field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DAM_R'].setValues(cf1=
+    -1.685415447, cf2=1.105089249, cf3=2.33982584, distributionType=UNIFORM, 
+    field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DPM_L'].setValues(cf1=
+    1.404512872, cf2=0.920907708, cf3=1.949854867, distributionType=UNIFORM, 
+    field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_DPM_R'].setValues(cf1=
+    -1.685415447, cf2=1.105089249, cf3=2.33982584, distributionType=UNIFORM, 
+    field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads.changeKey(fromName='CF_1_MT+PT', 
+    toName='CF_1_MT+PT_R')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.44728333, cf2=
+    -0.905370605, cf3=1.912298295, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_SM_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.9964852, cf2=
+    -1.197363963, cf3=-0.275219722, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_ILP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_ILP_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_ILP_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-2.159051267, cf2=
+    -2.594288587, cf3=-0.596309398, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_ILP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_ILP_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.721271923, cf2=
+    -1.458896702, cf3=0.167377296, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SLP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_SLP_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.721271923, cf2=
+    -1.458896702, cf3=0.167377296, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SLP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_SLP_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.874643369, cf2=
+    -1.434912208, cf3=3.051117088, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_MP_R'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.339030978, cf2=
+    -1.024937292, cf3=2.179369349, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_1_MP_L'].deactivate(
+    'loading_step2')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.534341339, cf2=
+    -0.157792073, cf3=3.54314928, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_AT_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.430441634, cf2=
+    -0.127110281, cf3=2.854203586, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_AT_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-2.427530345, cf2=
+    9.676169908, cf3=5.364332791, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MT+PT_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['POSTERIOR_TEMPORALIS_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=2.044390228, cf2=
+    8.403623292, cf3=4.658850807, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MT+PT_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['POSTERIOR_TEMPORALIS_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-3.370830894, cf2=
+    2.210178498, cf3=4.67965168, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DAM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=2.809025745, cf2=
+    1.841815415, cf3=3.899709734, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DAM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-3.370830894, cf2=
+    2.210178498, cf3=4.67965168, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DPM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=2.809025745, cf2=
+    1.841815415, cf3=3.899709734, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_FPM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.89456666, cf2=
+    -1.810741211, cf3=3.824596591, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.745472217, cf2=
+    -1.508951009, cf3=3.187163826, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.992970401, cf2=
+    -2.394727926, cf3=-0.550439444, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_ILP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-4.318102535, cf2=
+    -5.188577173, cf3=-1.192618795, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_ILP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.442543845, cf2=
+    -2.917793404, cf3=0.334754592, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SLP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-3.442543845, cf2=
+    -2.917793404, cf3=0.334754592, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SLP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.749286738, cf2=
+    -2.869824417, cf3=6.102234176, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-2.678061956, cf2=
+    -2.049874583, cf3=4.358738697, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_AT_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_AT_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_DAM_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_DAM_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_DPM_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_FPM_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_ILP_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_ILP_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_MP_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_MP_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_MT+PT_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_MT+PT_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_SLP_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_SLP_R'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.068682677, cf2=
+    -0.315584146, cf3=7.086298559, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_AT_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.860883268, cf2=
+    -0.254220562, cf3=5.708407173, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_AT_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-4.855060691, cf2=
+    19.35233982, cf3=10.72866558, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MT+PT_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['POSTERIOR_TEMPORALIS_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=4.088780455, cf2=
+    16.80724658, cf3=9.317701615, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MT+PT_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['POSTERIOR_TEMPORALIS_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-6.741661787, cf2=
+    4.420356996, cf3=9.35930336, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DAM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=5.618051489, cf2=
+    3.68363083, cf3=7.799419467, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DAM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-6.741661787, cf2=
+    4.420356996, cf3=9.35930336, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DPM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=5.618051489, cf2=
+    3.68363083, cf3=7.799419467, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DPM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.78913332, cf2=
+    -3.621482422, cf3=7.649193182, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SM_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.490944434, cf2=
+    -3.017902018, cf3=6.374327652, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SM_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.985940802, cf2=
+    -4.789455852, cf3=-1.100878888, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_ILP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-8.63620507, cf2=
+    -10.37715435, cf3=-2.385237591, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_ILP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=6.88508769, cf2=
+    -5.835586807, cf3=0.669509184, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SLP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-6.88508769, cf2=
+    -5.835586807, cf3=0.669509184, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SLP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=7.498573476, cf2=
+    -5.739648833, cf3=12.20446835, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MP_R', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['CF_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-5.356123911, cf2=
+    -4.099749167, cf3=8.717477394, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MP_L', region=
+    mdb.models['CF_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_3'].setValues(cf3=-500.0
+    , distributionType=UNIFORM, field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_2'].setValues(cf3=-200.0
+    , distributionType=UNIFORM, field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_1'].setValues(cf3=-50.0, 
+    distributionType=UNIFORM, field='')
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='CF_MF_v4_MT-PT-combined', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name='CF_MF_v4_RF500N_11-7', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['GS_MF_v3-2']
+del mdb.models['GS_MF_v3-Backup']
+del mdb.models['GS_MF_v3-Copy']
+del mdb.models['GS_MF_v3-Test-2']
+del mdb.models['GS_MF_v3_Combined-Sets']
+del mdb.models['GS_MF_v3_MT_PT_combined_9-7']
+del mdb.models['GS_MF_v3_New-Nodes']
+del mdb.models['GS_MF_v3_New-Set']
+del mdb.models['GS_MF_v3_nMT-Nodes_9-7']
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_2'].setValues(cf3=
+    -293.69, distributionType=UNIFORM, field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_1'].setValues(cf3=
+    -151.17, distributionType=UNIFORM, field='')
+mdb.jobs.changeKey(fromName='CF_MF_v4_RF500N_11-7', toName=
+    'CF_MF_v4_RF702N_12-7')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_3'].setValues(cf3=
+    -702.87, distributionType=UNIFORM, field='')
+mdb.ModelFromInputFile(inputFileName=
+    'E:/Studienarbeit/Job_Files/CF_MF_v4_RF702N_12-7.inp', name=
+    'CF_MF_v4_RF702N_12-7')
+del mdb.models['CF_MF_v4_RF702N_12-7']
+mdb.Model(name='SPHERE_MF_v4_MT-PT-combined', objectToCopy=
+    mdb.models['SPHERE_MF_v3'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].fieldOutputRequests['F-Output-1'].setValues(
+    frequency=10)
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].fieldOutputRequests['F-Output-2'].setValues(
+    frequency=10)
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].fieldOutputRequests['F-Output-3'].setValues(
+    frequency=10)
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets.changeKey(fromName=
+    'POSTERIOR_TEMPORALIS_L', toName='MT+PT_L')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets.changeKey(fromName=
+    'POSTERIOR_TEMPORALIS_R', toName='MT+PT_R')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads.delete(('CFORCE-140', 
+    'CFORCE-1', 'CFORCE-2', 'CFORCE-3', 'CFORCE-4', 'CFORCE-5', 'CFORCE-6', 
+    'CFORCE-7', 'CFORCE-8', 'CFORCE-9', 'CFORCE-10', 'CFORCE-11', 'CFORCE-12', 
+    'CFORCE-13', 'CFORCE-14', 'CFORCE-15', 'CFORCE-16', 'CFORCE-17', 
+    'CFORCE-18', 'CFORCE-19', 'CFORCE-20', 'CFORCE-21', 'CFORCE-22', 
+    'CFORCE-23', 'CFORCE-24', 'CFORCE-25', 'CFORCE-26', 'CFORCE-27', 
+    'CFORCE-28', 'CFORCE-29', 'CFORCE-30', 'CFORCE-31', 'CFORCE-32', 
+    'CFORCE-33', 'CFORCE-34', 'CFORCE-35', 'CFORCE-36', 'CFORCE-37', 
+    'CFORCE-38', 'CFORCE-39', 'CFORCE-40', 'CFORCE-41', 'CFORCE-42', 
+    'CFORCE-43', 'CFORCE-44', 'CFORCE-45', 'CFORCE-46', 'CFORCE-47', 
+    'CFORCE-48', 'CFORCE-49', 'CFORCE-50', 'CFORCE-51', 'CFORCE-52', 
+    'CFORCE-53', 'CFORCE-54', 'CFORCE-55', 'CFORCE-56', 'CFORCE-57', 
+    'CFORCE-58', 'CFORCE-59', 'CFORCE-60', 'CFORCE-61', 'CFORCE-62', 
+    'CFORCE-63', 'CFORCE-64', 'CFORCE-65', 'CFORCE-66', 'CFORCE-67', 
+    'CFORCE-68', 'CFORCE-69', 'CFORCE-70', 'CFORCE-71', 'CFORCE-72', 
+    'CFORCE-73', 'CFORCE-74', 'CFORCE-75', 'CFORCE-76', 'CFORCE-77', 
+    'CFORCE-78', 'CFORCE-79', 'CFORCE-80', 'CFORCE-81', 'CFORCE-82', 
+    'CFORCE-83', 'CFORCE-84', 'CFORCE-85', 'CFORCE-86', 'CFORCE-87', 
+    'CFORCE-88', 'CFORCE-89', 'CFORCE-90', 'CFORCE-91', 'CFORCE-92', 
+    'CFORCE-93', 'CFORCE-94', 'CFORCE-95', 'CFORCE-96', 'CFORCE-97', 
+    'CFORCE-98', 'CFORCE-99', 'CFORCE-100', 'CFORCE-101', 'CFORCE-102', 
+    'CFORCE-103', 'CFORCE-104', 'CFORCE-105', 'CFORCE-106', 'CFORCE-107', 
+    'CFORCE-108', 'CFORCE-109', 'CFORCE-110', 'CFORCE-111', 'CFORCE-112', 
+    'CFORCE-113', 'CFORCE-114', 'CFORCE-115', 'CFORCE-116', 'CFORCE-117', 
+    'CFORCE-118', 'CFORCE-119', 'CFORCE-120', 'CFORCE-121', 'CFORCE-122', 
+    'CFORCE-123', 'CFORCE-124', 'CFORCE-125', 'CFORCE-126', 'CFORCE-127', 
+    'CFORCE-128', 'CFORCE-129', 'CFORCE-130', 'CFORCE-131', 'CFORCE-132', 
+    'CFORCE-133', 'CFORCE-134', 'CFORCE-135', 'CFORCE-136', 'CFORCE-137', 
+    'CFORCE-138', 'CFORCE-139'))
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.267170669, 
+    cf2=-0.078896037, cf3=1.77157464, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_AT_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.215220817, 
+    cf2=-0.063555141, cf3=1.427101793, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_AT_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.213765173, 
+    cf2=4.838084954, cf3=2.682166396, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MT+PT_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MT+PT_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.022195114, 
+    cf2=4.201811646, cf3=2.329425404, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MT+PT_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MT+PT_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.685415447, 
+    cf2=1.105089249, cf3=2.33982584, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DAM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.404512872, 
+    cf2=0.920907708, cf3=1.949854867, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DAM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.685415447, 
+    cf2=1.105089249, cf3=2.33982584, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DPM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.404512872, 
+    cf2=0.920907708, cf3=1.949854867, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_DPM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.44728333, 
+    cf2=-0.905370605, cf3=1.912298295, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SAM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.372736108, 
+    cf2=-0.754475505, cf3=1.593581913, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.9964852, cf2=
+    -1.197363963, cf3=-0.275219722, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_ILP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-2.159051267, 
+    cf2=-2.594288587, cf3=-0.596309398, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_ILP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.442543845, 
+    cf2=-2.917793404, cf3=0.334754592, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'Cf_1_SLP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.721271923, 
+    cf2=-1.458896702, cf3=0.167377296, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_SLP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads.changeKey(fromName='Cf_1_SLP_R'
+    , toName='CF_1_SLP_R')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_SLP_R'].setValues(cf1=
+    1.721271923, cf2=-1.458896702, cf3=0.167377296, distributionType=UNIFORM, 
+    field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.874643369, 
+    cf2=-1.434912208, cf3=3.051117088, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.339030978, 
+    cf2=-1.024937292, cf3=2.179369349, createStepName='loading_step1', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_1_MP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_AT_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_AT_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_DAM_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_DAM_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_DPM_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_DPM_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_ILP_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_ILP_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_MP_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_MP_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_MT+PT_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_MT+PT_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_SAM_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_SLP_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_SLP_R'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_1_SM_L'].deactivate(
+    'loading_step2')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.534341339, 
+    cf2=-0.15779, cf3=3.54314928, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_AT_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.430441634, 
+    cf2=-0.127110281, cf3=2.854203586, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_AT_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-2.427530345, 
+    cf2=9.676169908, cf3=5.364332791, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MT+PT_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MT+PT_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=2.044390228, 
+    cf2=8.403623292, cf3=4.658850807, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MT+PT_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MT+PT_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-3.370830894, 
+    cf2=2.210178498, cf3=4.67965168, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DAM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=2.809025745, 
+    cf2=1.841815415, cf3=3.899709734, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DAM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-3.370830894, 
+    cf2=2.210178498, cf3=4.67965168, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DPM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=2.809025745, 
+    cf2=1.841815415, cf3=3.899709734, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_DPM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-0.89456666, 
+    cf2=-1.810741211, cf3=3.824596591, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.745472217, 
+    cf2=-1.508951009, cf3=3.187163826, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.992970401, 
+    cf2=-2.394727926, cf3=-0.550439444, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_ILP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-4.318102535, 
+    cf2=-5.188577173, cf3=-1.192618795, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_ILP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.442543845, 
+    cf2=-2.917793404, cf3=0.334754592, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SLP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-3.442543845, 
+    cf2=-2.917793404, cf3=0.334754592, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_SLP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.749286738, 
+    cf2=-2.869824417, cf3=6.102234176, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-2.678061956, 
+    cf2=-2.049874583, cf3=4.358738697, createStepName='loading_step2', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_2_MP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_AT_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_AT_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_DAM_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_DAM_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_DPM_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_DPM_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_ILP_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_ILP_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_MP_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_MP_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_MT+PT_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_MT+PT_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_SLP_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_SLP_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_SM_L'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CF_2_SM_R'].deactivate(
+    'loading_step3')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.068682677, 
+    cf2=-0.315584146, cf3=7.086298559, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_AT_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=0.860883268, 
+    cf2=-0.254220562, cf3=5.708407173, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_AT_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['ANTERIOR_TEMPORALIS_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-4.855060691, 
+    cf2=19.35233982, cf3=10.72866558, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MT+PT_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MT+PT_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=4.088780455, 
+    cf2=16.80724658, cf3=9.317701615, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_AT+MT_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MT+PT_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads.changeKey(fromName=
+    'CF_3_AT+MT_L', toName='CF_3_MT+PT_L')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-6.741661787, 
+    cf2=4.420356996, cf3=9.35930336, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DAM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=5.618051489, 
+    cf2=3.68363083, cf3=7.799419467, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DAM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_ANTERIOR_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-6.741661787, 
+    cf2=4.420356996, cf3=9.35930336, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DPM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=5.618051489, 
+    cf2=3.68363083, cf3=7.799419467, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_DPM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['DEEP_POSTERIOR_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-1.78913332, 
+    cf2=-3.621482422, cf3=7.649193182, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SM_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=1.490944434, 
+    cf2=-3.017902018, cf3=6.374327652, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SM_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERFICIAL_MASSETER_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=3.985940802, 
+    cf2=-4.789455852, cf3=-1.100878888, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_ILP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['INFERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-8.63620507, 
+    cf2=-10.37715435, cf3=-2.385237591, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_ILP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['INFEROIR_LATERAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=6.88508769, 
+    cf2=-5.835586807, cf3=0.669509184, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SLP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-6.88508769, 
+    cf2=-5.835586807, cf3=0.669509184, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_SLP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['SUPERIOR_LATERAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=7.498573476, 
+    cf2=-5.739648833, cf3=12.20446835, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MP_R', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_R'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].ConcentratedForce(cf1=-5.356123911, 
+    cf2=-4.099749167, cf3=8.717477394, createStepName='loading_step3', 
+    distributionType=UNIFORM, field='', localCsys=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.datums[107], name=
+    'CF_3_MP_L', region=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'].rootAssembly.sets['MEDIAL_PTERYGOID_L'])
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CONC_LOAD_3'].setValues(cf3=
+    -702.87, distributionType=UNIFORM, field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CONC_LOAD_2'].setValues(cf3=
+    -293.69, distributionType=UNIFORM, field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CONC_LOAD_1'].setValues(cf3=
+    -151.17, distributionType=UNIFORM, field='')
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='SPHERE_MF_v4_MT-PT-combined', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name=
+    'SPHERE_MF_v4_MT-PT_combined_12-7', nodalOutputPrecision=SINGLE, numCpus=1, 
+    numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.ModelFromInputFile(inputFileName=
+    'E:/Studienarbeit/Job_Files/SPHERE_MF_v4_MT-PT_combined_12-7.inp', name=
+    'SPHERE_MF_v4_MT-PT_combined_12-7')
+del mdb.models['SPHERE_MF_v4_MT-PT_combined_12-7']
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_SM_L'].deactivate(
+    'loading_step3')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CF_2_SM_R'].deactivate(
+    'loading_step3')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_AT_L'].setValues(cf1=
+    0.215220817, cf2=-0.063555141, cf3=1.427101793, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_AT_R'].setValues(cf1=
+    -0.267170669, cf2=-0.078896037, cf3=1.77157464, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_DAM_L'].setValues(cf1=
+    1.404512872, cf2=0.920907708, cf3=1.949854867, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_DAM_R'].setValues(cf1=
+    -1.685415447, cf2=1.105089249, cf3=2.33982584, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_DPM_L'].setValues(cf1=
+    1.404512872, cf2=0.920907708, cf3=1.949854867, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_DPM_R'].setValues(cf1=
+    -1.685415447, cf2=1.105089249, cf3=2.33982584, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_ILP_L'].setValues(cf1=
+    -2.159051267, cf2=-2.594288587, cf3=-0.596309398, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_ILP_R'].setValues(cf1=
+    0.9964852, cf2=-1.197363963, cf3=-0.275219722, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_MP_L'].setValues(cf1=
+    -1.339030978, cf2=-1.024937292, cf3=2.179369349, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_MP_R'].setValues(cf1=
+    1.874643369, cf2=-1.434912208, cf3=3.051117088, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_MT/PT_L'].setValues(cf1=
+    1.022195114, cf2=4.201811646, cf3=2.329425404, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_MT/PT_R'].setValues(cf1=
+    -1.213765173, cf2=4.838084954, cf3=2.682166396, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_MT/PT_R'].setValues(cf2=
+    3.8336872, cf3=3.709198465, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_MT/PT_L'].setValues(cf1=
+    1.054138711, cf2=3.329505719, cf3=3.221388928, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_SLP_L'].setValues(cf1=
+    -1.721271923, cf2=-1.458896702, cf3=0.167377296, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_SLP_R'].setValues(cf1=
+    1.721271923, cf2=-1.458896702, cf3=0.167377296, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_SM_L'].setValues(cf1=
+    0.372736108, cf2=-0.754475505, cf3=1.593581913, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_1_SM_R'].setValues(cf1=
+    -0.44728333, cf2=-0.905370605, cf3=1.912298295, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_AT_L'].setValues(cf1=
+    0.430441634, cf2=-0.127110281, cf3=2.854203586, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_AT_R'].setValues(cf1=
+    -0.534341339, cf2=-0.157792073, cf3=3.54314928, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_DAM_L'].setValues(cf1=
+    2.809025745, cf2=1.841815415, cf3=3.899709734, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_DAM_R'].setValues(cf1=
+    -3.370830894, cf2=2.210178498, cf3=4.67965168, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_DPM_L'].setValues(cf1=
+    2.809025745, cf2=1.841815415, cf3=3.899709734, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_DPM_R'].setValues(cf1=
+    -3.370830894, cf2=2.210178498, cf3=4.67965168, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_ILP_L'].setValues(cf1=
+    -4.318102535, cf2=-5.188577173, cf3=-1.192618795, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_ILP_R'].setValues(cf1=
+    1.992970401, cf2=-2.394727926, cf3=-0.550439444, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_MP_L'].setValues(cf1=
+    -2.678061956, cf2=-2.049874583, cf3=4.358738697, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_MP_R'].setValues(cf1=
+    3.749286738, cf2=-2.869824417, cf3=6.102234176, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_MT/PT_L'].setValues(cf1=
+    2.108277422, cf2=6.659011439, cf3=6.442777857, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_MT/PT_R'].setValues(cf1=
+    -2.427530345, cf2=7.667374401, cf3=7.418396929, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_SLP_L'].setValues(cf1=
+    -3.442543845, cf2=-2.917793404, cf3=0.334754592, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_SLP_R'].setValues(cf1=
+    3.442543845, cf2=-2.917793404, cf3=0.334754592, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_SM_L'].setValues(cf1=
+    0.745472217, cf2=-1.508951009, cf3=3.187163826, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_SM_R'].setValues(cf1=
+    -0.89456666, cf2=-1.810741211, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_2_SM_R'].setValues(cf3=
+    3.824596591, distributionType=UNIFORM, field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_MT/PT_L'].setValues(cf1=
+    4.216554845, cf2=13.31802288, cf3=12.88555571, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_MT/PT_R'].setValues(cf1=
+    -4.855060691, cf2=15.3347488, cf3=14.83679386, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_AT_L'].setValues(cf1=
+    0.860883268, cf2=-0.254220562, cf3=5.708407173, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_AT_R'].setValues(cf1=
+    -1.068682677, cf2=-0.315584146, cf3=7.086298559, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_DAM_L'].setValues(cf1=
+    5.618051489, cf2=3.68363083, cf3=7.799419467, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_DAM_R'].setValues(cf1=
+    -6.741661787, cf2=4.420356996, cf3=9.35930336, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_DPM_L'].setValues(cf1=
+    5.618051489, cf2=3.68363083, cf3=7.799419467, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_DPM_R'].setValues(cf1=
+    -6.741661787, cf2=4.420356996, cf3=9.35930336, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_ILP_L'].setValues(cf1=
+    -8.63620507, cf2=-10.37715435, cf3=-2.385237591, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_ILP_R'].setValues(cf1=
+    3.985940802, cf2=-4.789455852, cf3=-1.100878888, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_MP_L'].setValues(cf1=
+    -5.356123911, cf2=-4.099749167, cf3=8.717477394, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_MP_R'].setValues(cf1=
+    7.498573476, cf2=-5.739648833, cf3=12.20446835, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_SLP_L'].setValues(cf1=
+    -6.88508769, cf2=-5.835586807, cf3=0.669509184, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_SLP_R'].setValues(cf1=
+    6.88508769, cf2=-5.835586807, cf3=0.669509184, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_SM_L'].setValues(cf1=
+    1.490944434, cf2=-3.017902018, cf3=6.374327652, distributionType=UNIFORM, 
+    field='')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].loads['CF_3_SM_R'].setValues(cf1=
+    -1.78913332, cf2=-3.621482422, cf3=7.649193182, distributionType=UNIFORM, 
+    field='')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].Part(name='Rubber_New', 
+    objectToCopy=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[8], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[1], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[3], 
+    offset1=3.0, offset2=3.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[8], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[10], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[3], 
+    offset1=3.0, offset2=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Datum pt-2'].setValues(
+    dim2=3.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].regenerate()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[1], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[9], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[3], 
+    offset1=3.0, offset2=7.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[9], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[10], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[3], 
+    offset1=7.0, offset2=3.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[6], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[5], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[1], 
+    offset1=3.0, offset2=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Datum pt-5'].setValues(
+    dim2=3.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].regenerate()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[6], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[3], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[1], 
+    offset1=3.0, offset2=3.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[4], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[3], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[1], 
+    offset1=7.0, offset2=3.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].DatumPointByOnFace(
+    edge1=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[5], 
+    edge2=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[4], 
+    face=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[1], 
+    offset1=3.0, offset2=7.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.regenerate()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].deleteMesh(regions=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByPlaneThreePoints(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), point1=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[9], 
+    point2=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[10], 
+    point3=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[14])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByPlanePointNormal(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), normal=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[4], point=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[14])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].ConstrainedSketch(gridSpacing=2.12, 
+    name='__profile__', sheetSize=85.12, transform=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].MakeSketchTransform(
+    sketchPlane=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[1], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[4], 
+    sketchOrientation=RIGHT, origin=(31.842905, 44.987738, 21.391532)))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'].rectangle(
+    point1=(-11.4999151840148, 6.00001479938192), point2=(7.4999751801685, 
+    -5.99999715938871))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'].rectangle(
+    point1=(-11.4999151840148, -5.99999715938871), point2=(7.49997518016851, 
+    6.00002370630064))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionFaceBySketch(
+    faces=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces.getSequenceFromMask(
+    ('[#2 ]', ), ), sketch=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'], 
+    sketchUpEdge=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[4])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].ConstrainedSketch(gridSpacing=2.15, 
+    name='__profile__', sheetSize=86.35, transform=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].MakeSketchTransform(
+    sketchPlane=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[5], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[16], 
+    sketchOrientation=RIGHT, origin=(31.767629, 44.749155, 25.383657)))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'].rectangle(
+    point1=(-11.4999454079078, 6.00001545142959), point2=(7.49994495627543, 
+    -6.00001432117848))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionFaceBySketch(
+    faces=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces.getSequenceFromMask(
+    ('[#20 ]', ), ), sketch=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__'], 
+    sketchUpEdge=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[16])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].sketches['__profile__']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByPlaneNormalToEdge(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), edge=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[2], point=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[10])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByPlanePointNormal(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), normal=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[17], 
+    point=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[9])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByPlaneNormalToEdge(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), edge=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[2], point=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].datums[9])
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtendFace(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), extendFace=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[0])
+#* Feature creation failed.
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtendFace(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), extendFace=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[6])
+#* Feature creation failed.
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtendFace(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), extendFace=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[0])
+#* Feature creation failed.
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtrudeEdge(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), edges=(
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[2], ), 
+    line=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[17], 
+    sense=REVERSE)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtendFace(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), extendFace=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].faces[1])
+#* Feature creation failed.
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtrudeEdge(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), edges=(
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[5], ), 
+    line=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[23], 
+    sense=REVERSE)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtrudeEdge(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), edges=(
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[9], ), 
+    line=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[30], 
+    sense=FORWARD)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].PartitionCellByExtrudeEdge(
+    cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), edges=(
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[16], ), 
+    line=mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges[29], 
+    sense=REVERSE)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, deviationFactor=0.1, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#c3e4f ]', ), ), minSizeFactor=0.1, size=0.75)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, deviationFactor=0.1, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#97800000 #3 ]', ), ), minSizeFactor=0.1, size=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].Set(cells=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), name='FailedMeshRegions-1')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].setElementType(
+    elemTypes=(ElemType(elemCode=C3D8H, elemLibrary=STANDARD), ElemType(
+    elemCode=C3D6, elemLibrary=STANDARD), ElemType(elemCode=C3D4, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.regenerate()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.DatumPointByCoordinate(
+    coords=(32.9952469, 41.8077545, 43.0794144))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.ReferencePoint(point=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.instances['UPPER_MOLARS'].nodes[841])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.ReferencePoint(point=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.datums[321])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.features['RP-3'].suppress(
+    )
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.features['RP-3']
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.features.changeKey(
+    fromName='RP-4', toName='RP-3')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.Set(name='m_Set-40', 
+    referencePoints=(
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.referencePoints[323], 
+    ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.Set(name='s_Set-40', 
+    nodes=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.instances['UPPER_MOLARS'].nodes.getSequenceFromMask(
+    mask=('[#0:7 #40008000 #40100480 #49044444 #29211160 #c9288926 #ca822214', 
+    ' #1150b184 #c415003b #320c8680 #81c03200 #801902c3 #601c3203 #e00521a1', 
+    ' #40249110 #a0510a83 #2821122 #a288504b #29230830 #50a10a94 #7288454a', 
+    ' #85424914 #50446b29 #a050dc88 #650c2950 #a3589141 #49274910 #ae3191b1', 
+    ' #3b1c3f12 #db4f974d #3 ]', ), ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].Coupling(controlPoint=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.sets['m_Set-40'], 
+    couplingType=KINEMATIC, influenceRadius=WHOLE_SURFACE, localCsys=None, 
+    name='Constraint-10', surface=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.sets['s_Set-40'], 
+    u1=ON, u2=ON, u3=ON, ur1=ON, ur2=ON, ur3=ON)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].boundaryConditions['UPPER_MOLAR'].setValues(
+    region=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.sets['m_Set-40'])
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].boundaryConditions['RUBBER_2'].setValues(
+    u1=SET, u3=UNSET)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].boundaryConditions['RUBBER_2'].setValues(
+    u1=UNSET, u3=SET)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].deleteMesh(regions=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#2 ]', ), ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, deviationFactor=0.1, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#ffffff9f #7 ]', ), ), minSizeFactor=0.1, size=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#ffffff9f #7 ]', ), ), size=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].deleteMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#ffffffff #7 ]', ), ), size=0.75)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#97800000 #3 ]', ), ), size=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].deleteMesh(regions=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#2 ]', ), ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#68000000 #4 ]', ), ), size=4.0)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.regenerate()
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].boundaryConditions['RUBBER_2'].deactivate(
+    'loading_step3')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].boundaryConditions['RUBBER_1'].deactivate(
+    'loading_step3')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].fieldOutputRequests['F-Output-3'].setValues(
+    variables=('S', 'PE', 'PEEQ', 'PEMAG', 'LE', 'U', 'RF', 'CF', 'CSTRESS', 
+    'CPOINTLOAD', 'CDISP', 'CFORCE'))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].fieldOutputRequests['F-Output-2'].setValues(
+    variables=('S', 'PE', 'PEEQ', 'PEMAG', 'LE', 'U', 'RF', 'CF', 'CSTRESS', 
+    'CPOINTLOAD', 'CDISP', 'CFORCE'))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].HistoryOutputRequest(createStepName=
+    'loading_step3', name='H-Output-1', variables=('CSTRESS', 'CFNM', 'CFN1', 
+    'CFN2', 'CFN3', 'CFSM', 'CFS1', 'CFS2', 'CFS3', 'CFTM', 'CFT1', 'CFT2', 
+    'CFT3', 'CAREA', 'ALLAE', 'ALLCD', 'ALLDMD', 'ALLEE', 'ALLFD', 'ALLIE', 
+    'ALLJD', 'ALLKE', 'ALLKL', 'ALLPD', 'ALLQB', 'ALLSE', 'ALLSD', 'ALLVD', 
+    'ALLWK', 'ETOTAL'))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].HistoryOutputRequest(name=
+    'H-Output-1-Copy', objectToCopy=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].historyOutputRequests['H-Output-1']
+    , toStepName='loading_step2')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].HistoryOutputRequest(name=
+    'H-Output-1-Copy2', objectToCopy=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].historyOutputRequests['H-Output-1']
+    , toStepName='loading_step1')
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].deleteMesh(regions=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].cells.getSequenceFromMask(
+    ('[#2 ]', ), ))
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].seedEdgeBySize(
+    constraint=FINER, edges=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].edges.getSequenceFromMask(
+    ('[#68000000 #4 ]', ), ), size=0.75)
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].parts['RUBBER'].generateMesh()
+mdb.models['GS_MF_v4_MT_PT_combined_10-7'].rootAssembly.regenerate()
+mdb.ModelFromInputFile(inputFileName=
+    'E:/Studienarbeit/Job_Files/7. Comparing Forces, Vectors and Contact Area/Gold Standard/GS_075ES-UM_9-9/run_17979/GS_075ES-UM_12-8.inp'
+    , name='GS_075ES-UM_12-8')
+del mdb.models['SPHERE_MF_v3']
+del mdb.models['GS_MF_v3']
+del mdb.models['CF_MF_v3']
+mdb.models['GS_075ES-UM_12-8'].historyOutputRequests['H-Output-1'].setValues(
+    variables=('CFNM', 'CFN1', 'CFN2', 'CFN3', 'CFSM', 'CFS1', 'CFS2', 'CFS3', 
+    'CFTM', 'CFT1', 'CFT2', 'CFT3', 'CAREA', 'ALLAE', 'ALLCD', 'ALLDMD', 
+    'ALLEE', 'ALLFD', 'ALLIE', 'ALLJD', 'ALLKE', 'ALLKL', 'ALLPD', 'ALLQB', 
+    'ALLSE', 'ALLSD', 'ALLVD', 'ALLWK', 'ETOTAL'))
+mdb.models['GS_075ES-UM_12-8'].historyOutputRequests['H-Output-2'].setValues(
+    variables=('CFNM', 'CFN1', 'CFN2', 'CFN3', 'CFSM', 'CFS1', 'CFS2', 'CFS3', 
+    'CAREA', 'ALLAE', 'ALLCD', 'ALLDMD', 'ALLEE', 'ALLFD', 'ALLIE', 'ALLJD', 
+    'ALLKE', 'ALLKL', 'ALLPD', 'ALLQB', 'ALLSE', 'ALLSD', 'ALLVD', 'ALLWK', 
+    'ETOTAL'))
+mdb.models['GS_075ES-UM_12-8'].historyOutputRequests['H-Output-3'].setValues(
+    variables=('CFNM', 'CFN1', 'CFN2', 'CFN3', 'CFSM', 'CFS1', 'CFS2', 'CFS3', 
+    'CAREA', 'ALLAE', 'ALLCD', 'ALLDMD', 'ALLEE', 'ALLFD', 'ALLIE', 'ALLJD', 
+    'ALLKE', 'ALLKL', 'ALLPD', 'ALLQB', 'ALLSE', 'ALLSD', 'ALLVD', 'ALLWK', 
+    'ETOTAL'))
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-4']
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-5']
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-6']
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-7']
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-8']
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-9']
+mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-2'].reset(
+    'loading_step2')
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-2']
+del mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-3']
+mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-1'].setValues(
+    variables=('S', 'U', 'RF', 'RT', 'CF', 'NFORC', 'CSTRESS', 'CLINELOAD', 
+    'CPOINTLOAD', 'CFORCE', 'CNAREA'))
+mdb.models['GS_075ES-UM_12-8'].FieldOutputRequest(name='F-Output-1-Copy', 
+    objectToCopy=
+    mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-1'], 
+    toStepName='loading_step2')
+mdb.models['GS_075ES-UM_12-8'].FieldOutputRequest(name='F-Output-1-Copy2', 
+    objectToCopy=
+    mdb.models['GS_075ES-UM_12-8'].fieldOutputRequests['F-Output-1'], 
+    toStepName='loading_step3')
+del mdb.jobs['CFORCE']
+del mdb.jobs['CF_MF_v4_RF702N_12-7']
+del mdb.jobs['GS_MF_v3']
+del mdb.jobs['GS_MF_v3-Test-2']
+del mdb.jobs['GS_MF_v3_MT-PT-combined_9-7']
+del mdb.jobs['GS_MF_v3_New-Nodes']
+del mdb.jobs['GS_MF_v3_nMT-N_9-7']
+del mdb.jobs['GS_MF_v4_MT-PT-combined_10-7']
+del mdb.jobs['GS_New-Set']
+del mdb.jobs['SPHERE']
+del mdb.jobs['SPHERE_MF_v4_MT-PT_combined_12-7']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_075ES-UM_12-8', modelPrint=OFF
+    , multiprocessingMode=DEFAULT, name='GS_CNORMF_Calculation_20180108', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='GS_Lagrange_Rough-friction', objectToCopy=
+    mdb.models['GS_075ES-UM_12-8'])
+mdb.models['GS_Lagrange_Rough-friction'].interactionProperties['RUBBER_ENAMEL'].tangentialBehavior.setValues(
+    formulation=ROUGH)
+mdb.models['GS_Lagrange_Rough-friction'].interactionProperties['RUBBER_ENAMEL'].normalBehavior.setValues(
+    allowSeparation=OFF, clearanceAtZeroContactPressure=0.0, 
+    constraintEnforcementMethod=AUGMENTED_LAGRANGE, contactStiffness=DEFAULT, 
+    contactStiffnessScaleFactor=1.0, pressureOverclosure=HARD)
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_Lagrange_Rough-friction', 
+    modelPrint=OFF, multiprocessingMode=DEFAULT, name=
+    'GS_Lagrange_Rough-friction_20180108', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', type=
+    ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.Model(name='CF_with-CNORMF', objectToCopy=
+    mdb.models['CF_MF_v4_MT-PT-combined'])
+mdb.models['CF_with-CNORMF'].loads['CONC_LOAD_3'].setValues(cf1=-1.987428499, 
+    cf2=13.81521697, cf3=-549.0454991, distributionType=UNIFORM, field='')
+mdb.models['CF_with-CNORMF'].loads['CONC_LOAD_2'].setValues(cf1=-0.993714249, 
+    cf2=6.907608486, cf3=-274.5227495, distributionType=UNIFORM, field='')
+mdb.models['CF_with-CNORMF'].loads['CONC_LOAD_1'].setValues(cf1=-0.496857125, 
+    cf2=3.453804243, distributionType=UNIFORM, field='')
+mdb.models['CF_with-CNORMF'].loads['CONC_LOAD_1'].setValues(cf3=-137.2613748, 
+    distributionType=UNIFORM, field='')
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='CF_with-CNORMF', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='CF_CNORMF_20180108', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.Model(name='SP_CNORMF', objectToCopy=
+    mdb.models['SPHERE_MF_v4_MT-PT-combined'])
+mdb.models['SP_CNORMF'].loads['CONC_LOAD_3'].setValues(cf1=-1.98743, cf2=
+    13.8152, cf3=-549.045, distributionType=UNIFORM, field='')
+mdb.models['SP_CNORMF'].loads['CONC_LOAD_2'].setValues(cf1=-0.993714, cf2=
+    6.90761, cf3=-274.523, distributionType=UNIFORM, field='')
+mdb.models['SP_CNORMF'].loads['CONC_LOAD_1'].setValues(cf1=-0.496857, cf2=
+    3.4538, cf3=-137.261, distributionType=UNIFORM, field='')
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='SP_CNORMF', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='SP_CNORMF_20180109', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.models['SP_CNORMF'].fieldOutputRequests['F-Output-3'].setValues(variables=(
+    'S', 'PE', 'PEEQ', 'PEMAG', 'LE', 'U', 'RF', 'CF', 'NFORC', 'CSTRESS', 
+    'CPOINTLOAD', 'CDISP', 'CFORCE'))
+mdb.models['SP_CNORMF'].HistoryOutputRequest(createStepName='loading_step2', 
+    name='H-Output-1', variables=('CSTRESS', 'CFNM', 'CFN1', 'CFN2', 'CFN3', 
+    'CFSM', 'CFS1', 'CFS2', 'CFS3', 'CFTM', 'CFT1', 'CFT2', 'CFT3', 'CAREA', 
+    'ALLAE', 'ALLCD', 'ALLDMD', 'ALLEE', 'ALLFD', 'ALLIE', 'ALLJD', 'ALLKE', 
+    'ALLKL', 'ALLPD', 'ALLQB', 'ALLSE', 'ALLSD', 'ALLVD', 'ALLWK', 'ETOTAL'))
+mdb.models['SP_CNORMF'].HistoryOutputRequest(name='H-Output-2', objectToCopy=
+    mdb.models['SP_CNORMF'].historyOutputRequests['H-Output-1'], toStepName=
+    'loading_step3')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='GS_BC_Test', objectToCopy=mdb.models['GS_075ES-UM_12-8'])
+mdb.Model(name='GS_Final-Model', objectToCopy=
+    mdb.models['GS_MF_v4_MT_PT_combined_10-7'])
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh(regions=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#2 ]', ), ))
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellByPlanePointNormal(
+    cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#2 ]', ), ), normal=mdb.models['GS_Final-Model'].parts['RUBBER'].edges[8]
+    , point=mdb.models['GS_Final-Model'].parts['RUBBER'].datums[12])
+#* Feature creation failed.
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteFeatures((
+    'Partition face-1', 'Partition face-2', 'Partition cell-1', 
+    'Partition cell-2', 'Partition cell-3', 'Partition cell-4'))
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellByPlaneThreePoints(
+    cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), point1=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[12], point2=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[13], point3=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[9])
+del mdb.models['GS_Final-Model'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionFaceByShortestPath(faces=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].faces.getSequenceFromMask((
+    '[#2 ]', ), ), point1=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[12], point2=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[13])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionFaceByShortestPath(faces=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].faces.getSequenceFromMask((
+    '[#2 ]', ), ), point1=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[12], point2=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[11])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionFaceByShortestPath(faces=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].faces.getSequenceFromMask((
+    '[#2 ]', ), ), point1=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[11], point2=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[14])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionFaceByShortestPath(faces=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].faces.getSequenceFromMask((
+    '[#2 ]', ), ), point1=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[14], point2=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[13])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellByPlanePointNormal(
+    cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), normal=mdb.models['GS_Final-Model'].parts['RUBBER'].edges[5]
+    , point=mdb.models['GS_Final-Model'].parts['RUBBER'].datums[13])
+del mdb.models['GS_Final-Model'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellByPlaneThreePoints(
+    cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), point1=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[14], point2=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[13], point3=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].datums[9])
+del mdb.models['GS_Final-Model'].parts['RUBBER'].features['Partition cell-1']
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellByExtendFace(cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), extendFace=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].faces[2])
+#* Feature creation failed.
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellBySweepEdge(cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), edges=(
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[4], ), sweepPath=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[10])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellBySweepEdge(cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), edges=(
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[8], ), sweepPath=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[11])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellBySweepEdge(cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), edges=(
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[11], ), sweepPath=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[16])
+mdb.models['GS_Final-Model'].parts['RUBBER'].PartitionCellBySweepEdge(cells=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), edges=(
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[14], ), sweepPath=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges[18])
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].seedEdgeBySize(constraint=FINER, 
+    edges=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges.getSequenceFromMask((
+    '[#8d0fff ]', ), ), size=0.75)
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D8H, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['GS_Final-Model'].parts['RUBBER'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D8H, elemLibrary=STANDARD), ElemType(elemCode=C3D6, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D4, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#3 ]', ), ), ))
+mdb.models['GS_Final-Model'].parts['RUBBER'].setMeshControls(algorithm=
+    ADVANCING_FRONT, regions=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#2 ]', ), ), technique=SWEEP)
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].seedEdgeBySize(constraint=FINER, 
+    edges=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges.getSequenceFromMask((
+    '[#72f000 ]', ), ), size=2.0)
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].setMeshControls(algorithm=
+    MEDIAL_AXIS, regions=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#3 ]', ), ))
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].parts['RUBBER'].deleteMesh(regions=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].cells.getSequenceFromMask((
+    '[#1 ]', ), ))
+mdb.models['GS_Final-Model'].parts['RUBBER'].seedEdgeBySize(constraint=FINER, 
+    edges=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].edges.getSequenceFromMask((
+    '[#72f000 ]', ), ), size=4.0)
+mdb.models['GS_Final-Model'].parts['RUBBER'].generateMesh()
+mdb.models['GS_Final-Model'].rootAssembly.regenerate()
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_1'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[281], u1=SET, 
+    u2=UNSET)
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_2'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[281])
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_2'].setValues(u2=SET, 
+    u3=UNSET)
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-1-Copy', toName='H-Output-2')
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-2', toName='H-Output-3')
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-1', toName='H-Output-122')
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-3', toName='H-Output-322')
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-1-Copy2', toName='H-Output-1')
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-122', toName='H-Output-3')
+mdb.models['GS_Final-Model'].historyOutputRequests.changeKey(fromName=
+    'H-Output-322', toName='H-Output-2')
+mdb.models['GS_Final-Model'].fieldOutputRequests['F-Output-1'].setValues(
+    variables=('S', 'PE', 'PEEQ', 'PEMAG', 'EE', 'LE', 'U', 'RF', 'CF', 
+    'CSTRESS', 'CDISP', 'CFORCE', 'CNAREA'))
+del mdb.models['GS_Final-Model'].fieldOutputRequests['F-Output-2']
+del mdb.models['GS_Final-Model'].fieldOutputRequests['F-Output-3']
+mdb.models['GS_Final-Model'].FieldOutputRequest(name='F-Output-2', 
+    objectToCopy=mdb.models['GS_Final-Model'].fieldOutputRequests['F-Output-1']
+    , toStepName='loading_step2')
+mdb.models['GS_Final-Model'].FieldOutputRequest(name='F-Output-3', 
+    objectToCopy=mdb.models['GS_Final-Model'].fieldOutputRequests['F-Output-1']
+    , toStepName='loading_step3')
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_Final-Model', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_Final-Model', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['GS_Final-Model'].parts['RUBBER'].Surface(face1Elements=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].elements.getSequenceFromMask(
+    mask=('[#ffffffff:3 #ff #0:12 #ffffff00 #ffffffff:11 #ffffff ]', ), ), 
+    name='RUBBER_TOPSURF')
+mdb.models['GS_Final-Model'].parts['RUBBER'].Surface(face2Elements=
+    mdb.models['GS_Final-Model'].parts['RUBBER'].elements.getSequenceFromMask(
+    mask=('[#0:13 #ffffffff:3 #ff #0:49 #ffffff00 #ffffffff:11 #ffffff ]', ), )
+    , name='RUBBER_BOTTSURF')
+mdb.models['GS_Final-Model'].rootAssembly.regenerate()
+del mdb.models['CF_with-CNORMF']
+del mdb.models['GS_Lagrange_Rough-friction']
+del mdb.models['GS_MF_v4_MT_PT_combined_10-7']
+del mdb.models['SP_CNORMF']
+del mdb.models['GS_075ES-UM_12-8']
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_1'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[280], u1=UNSET, 
+    u2=SET)
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_1'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[108], u1=SET, 
+    u2=UNSET)
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_2'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[108])
+del mdb.jobs['CF_CNORMF_20180108']
+del mdb.jobs['GS_CNORMF_Calculation_20180108']
+del mdb.jobs['GS_Final-Model']
+del mdb.jobs['GS_Lagrange_Rough-friction_20180108']
+del mdb.jobs['SP_CNORMF_20180109']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='GS_Final-Model', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='GS_Final-BC', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+del mdb.models['GS_BC_Test']
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_1'].setValues(cf1=
+    -7.234081745, cf2=-22.51527405, cf3=-116.4408188, distributionType=UNIFORM, 
+    field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_2'].setValues(cf1=
+    -16.23364067, cf2=-42.93751526, cf3=-261.5550232, distributionType=UNIFORM, 
+    field='')
+mdb.models['CF_MF_v4_MT-PT-combined'].loads['CONC_LOAD_3'].setValues(cf1=
+    -34.52576447, cf2=-89.84737396, cf3=-570.234436, distributionType=UNIFORM, 
+    field='')
+mdb.models.changeKey(fromName='CF_MF_v4_MT-PT-combined', toName=
+    'CF1_Final-Model')
+mdb.Model(name='CF4_Final-Model', objectToCopy=mdb.models['CF1_Final-Model'])
+mdb.ModelFromInputFile(inputFileName=
+    'E:/Studienarbeit/Job_Files/7. Comparing Forces, Vectors and Contact Area/Concentrated Force/Four Nodes/GS/run_18039/CF_GS_4_23-9.inp'
+    , name='CF_GS_4_23-9')
+mdb.models['CF_GS_4_23-9'].rootAssembly.Set(name='CONTACT-AREA', nodes=
+    mdb.models['CF_GS_4_23-9'].rootAssembly.instances['ENAMEL'].nodes.getSequenceFromMask(
+    mask=('[#0:15 #2000 ]', ), ))
+del mdb.models['CF_GS_4_23-9']
+mdb.ModelFromInputFile(inputFileName=
+    'E:/Studienarbeit/Job_Files/7. Comparing Forces, Vectors and Contact Area/Concentrated Force/Four Nodes/GS/run_18039/CF_GS_4_23-9.inp'
+    , name='CF_GS_4_23-9')
+mdb.models['CF4_Final-Model'].rootAssembly.Set(name='Set-25', nodes=
+    mdb.models['CF4_Final-Model'].rootAssembly.instances['ENAMEL'].nodes.getSequenceFromMask(
+    mask=('[#0:15 #2000 ]', ), ))
+mdb.models['CF4_Final-Model'].rootAssembly.Set(name='Set-25', nodes=
+    mdb.models['CF4_Final-Model'].rootAssembly.instances['ENAMEL'].nodes.getSequenceFromMask(
+    mask=('[#0:8 #40000 #0:6 #2000 ]', ), ))
+mdb.models['CF4_Final-Model'].rootAssembly.Set(name='Set-25', nodes=
+    mdb.models['CF4_Final-Model'].rootAssembly.instances['ENAMEL'].nodes.getSequenceFromMask(
+    mask=('[#0:8 #40000 #0:6 #2000 #0:15 #40000 ]', ), ))
+mdb.models['CF4_Final-Model'].rootAssembly.Set(name='Set-25', nodes=
+    mdb.models['CF4_Final-Model'].rootAssembly.instances['ENAMEL'].nodes.getSequenceFromMask(
+    mask=('[#0:8 #40000 #0:6 #2000 #0:15 #40000 #0:6', ' #1 ]', ), ))
+mdb.models['CF4_Final-Model'].rootAssembly.sets.changeKey(fromName='Set-25', 
+    toName='Contact-Area')
+mdb.models['CF4_Final-Model'].rootAssembly.deleteSets(setNames=('SET-21', 
+    'SET-22', 'SET-23'))
+del mdb.models['CF4_Final-Model'].rootAssembly.sets['CARTILAGE']
+del mdb.models['CF4_Final-Model'].rootAssembly.sets['CARTILAGE_ELEMENTS']
+del mdb.models['CF4_Final-Model'].rootAssembly.sets['Conc_Force']
+del mdb.models['CF_GS_4_23-9']
+mdb.models['CF4_Final-Model'].loads['CONC_LOAD_1'].setValues(cf1=-1.80852, cf2=
+    -5.62882, cf3=-29.1102, distributionType=UNIFORM, field='', region=
+    mdb.models['CF4_Final-Model'].rootAssembly.sets['Contact-Area'])
+mdb.models['CF4_Final-Model'].loads['CONC_LOAD_2'].setValues(cf1=-4.05841, cf2=
+    -10.7344, cf3=-65.3888, distributionType=UNIFORM, field='', region=
+    mdb.models['CF4_Final-Model'].rootAssembly.sets['Contact-Area'])
+mdb.models['CF4_Final-Model'].loads['CONC_LOAD_3'].setValues(cf1=-8.63144, cf2=
+    -22.4618, cf3=-142.559, distributionType=UNIFORM, field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CONC_LOAD_3'].setValues(cf1=
+    -34.5258, cf2=-89.8474, cf3=-570.234, distributionType=UNIFORM, field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CONC_LOAD_2'].setValues(cf1=
+    -16.2336, cf2=-42.9375, cf3=-261.555, distributionType=UNIFORM, field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].loads['CONC_LOAD_1'].setValues(cf1=
+    -7.23408, cf2=-10.0, cf3=-116.441, distributionType=UNIFORM, field='')
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].interactionProperties['SPHERE-ENAMEL'].tangentialBehavior.setValues(
+    dependencies=0, directionality=ISOTROPIC, elasticSlipStiffness=None, 
+    formulation=PENALTY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
+    table=((0.2, ), ), temperatureDependency=OFF)
+mdb.models['SPHERE_MF_v4_MT-PT-combined'].interactionProperties['SPHERE-ENAMEL'].normalBehavior.setValues(
+    allowSeparation=ON, clearanceAtZeroContactPressure=0.0, 
+    constraintEnforcementMethod=PENALTY, contactStiffness=DEFAULT, 
+    contactStiffnessScaleFactor=1.0, pressureOverclosure=HARD, 
+    stiffnessBehavior=LINEAR)
+mdb.models.changeKey(fromName='SPHERE_MF_v4_MT-PT-combined', toName='Sphere')
+mdb.models.changeKey(fromName='Sphere', toName='Sphere_Final-Model')
+# Save by PS on 2018_01_21-21.30.27; build 6.14-1 2014_06_05-00.11.02 134264
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_1'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[280])
+mdb.models['GS_Final-Model'].boundaryConditions['RUBBER_2'].setValues(
+    localCsys=mdb.models['GS_Final-Model'].rootAssembly.datums[280])
+# Save by PS on 2018_01_22-08.26.58; build 6.14-1 2014_06_05-00.11.02 134264

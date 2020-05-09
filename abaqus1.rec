@@ -1,0 +1,1843 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-65.0, 25.0), 
+    point2=(70.0, -25.0))
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[5], textPoint=(
+    -96.1149215698242, 16.9838981628418), value=50.0)
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[4], textPoint=(
+    38.3137130737305, -59.1171607971191), value=50.0)
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], points=((
+    -55.2954597473145, -25.0), (-55.0, -26.25), (-32.5, -13.75), (-3.75, 
+    -3.75), (6.25, 1.25), (11.25, 2.5), (12.5, 1.25), (10.0, 0.0), (8.75, 0.0), 
+    (8.75, 0.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], points=((-65.0, 
+    14.3861236572266), (-66.25, 13.75), (-51.25, 13.75), (-32.5, 13.75), (
+    -21.25, 13.75), (-15.0, 13.75), (-12.5, 13.75), (-10.0, 13.75), (-7.5, 
+    13.75), (-6.25, 13.75), (-3.75, 13.75), (-2.5, 13.75), (-1.25, 13.75), (
+    0.0, 13.75)))
+mdb.models['Model-1'].sketches['__profile__'].dimensions[1].setValues(value=
+    100)
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], points=((
+    -42.3451385498047, 0.0), (-42.5, 0.0), (-17.5, 0.0), (0.0, 0.0), (2.5, 
+    -1.25)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], points=((-50.0, 
+    19.7802619934082), (-50.0, 20.0), (-25.0, 21.25), (-11.25, 21.25), (-3.75, 
+    21.25), (-1.25, 21.25), (0.0, 21.25)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], points=((
+    9.02413940429688, -1.25), (8.75, -1.25), (10.0, 0.0)))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    50.0), point2=(0.0, 29.2218551635742))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[6])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[0], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    0.0), point2=(13.7556762695313, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[1], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(100.0, 
+    0.0), point2=(100.0, -12.5))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[8])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[2], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[8])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(100.0, 
+    50.0), point2=(123.75, 47.5))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[3], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(26.25, 
+    50.0), point2=(44.8543319702148, 50.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6])
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[8])
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7])
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[5], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9], 
+    mdb.models['Model-1'].sketches['__profile__'].constraints[22], 
+    mdb.models['Model-1'].sketches['__profile__'].constraints[25], 
+    mdb.models['Model-1'].sketches['__profile__'].constraints[29], 
+    mdb.models['Model-1'].sketches['__profile__'].constraints[30], 
+    mdb.models['Model-1'].sketches['__profile__'].constraints[32], 
+    mdb.models['Model-1'].sketches['__profile__'].constraints[33]))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[4], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6], 
+    mdb.models['Model-1'].sketches['__profile__'].geometry[8]))
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], points=((
+    12.6833114624023, 0.0), (12.5, 0.0), (13.75, 11.25), (15.0, 17.5), (16.25, 
+    18.75)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], points=((0.0, 
+    13.7554473876953), (0.0, 13.75), (6.25, 13.75), (12.5, 13.75)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[1], points=((0.0, 
+    0.0), (0.0, 0.0), (2.5, 2.5), (3.75, 3.75), (5.0, 3.75)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[1], points=((0.0, 
+    0.0), (0.0, 0.0), (3.75, 6.25), (5.0, 7.5)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[1], points=((0.0, 
+    0.0), (0.0, 0.0), (-2.5, 0.0), (-5.0, 0.0), (-6.25, 0.0), (-7.5, 0.0), (
+    -8.75, 0.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[1], points=((0.0, 
+    0.0), (0.0, 0.0), (0.0, -1.25), (0.0, -1.25), (-1.25, 0.0), (-2.5, 0.0), (
+    -6.25, 0.0), (-7.5, 2.5), (-7.5, 7.5), (-5.0, 12.5), (6.25, 16.25), (13.75, 
+    8.75), (10.0, 0.0), (-3.75, 5.0), (-7.5, 8.75)))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3], ))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2], ))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[5], ))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[4], ))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(15.0, 
+    50.0), point2=(28.75, 40.0))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[10], ))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(15.0, 
+    50.0), point2=(25.0, 30.0))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(85.0, 
+    0.0), point2=(75.0, 20.0))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[12], ))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(85.0, 
+    0.0), point2=(75.0, 15.0))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(17.5, 
+    50.0), point2=(28.75, 28.75))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    49.0440826416016, 50.0), point2=(66.25, 23.75))
+mdb.models['Model-1'].sketches['__profile__'].ParallelConstraint(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14])
+mdb.models['Model-1'].sketches['__profile__'].ParallelConstraint(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[13], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15])
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7], textPoint=(
+    26.5881652832031, 4.20565605163574), value=60.0)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7], textPoint=(
+    57.6181564331055, 9.31731033325195), value=60.0)
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14], textPoint=(
+    15.4888076782227, 60.0079383850098), value=2.0)
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[13], textPoint=(
+    49.3713836669922, 56.8959159851074), value=2.0)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    81.2462335741147, 0.0), point2=(81.2462335741147, -2.92747116088867))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[16])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    14.2264973083511, 50.0), point2=(14.2264973083511, 44.5714950561523))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[17])
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[17], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6], textPoint=(
+    4.92266845703125, 24.4063854217529), value=15.0)
+mdb.models['Model-1'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[8], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16], textPoint=(
+    90.0320816040039, 25.8467502593994), value=15.0)
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11], points=((
+    32.0558612598106, 19.1186357690021), (31.25, 18.75), (33.75, 18.75), (32.5, 
+    18.75), (32.5, 18.75)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11], points=((
+    14.5896996292286, 49.771550220903), (14.5627403259277, 49.7554206848145), (
+    14.7565431594849, 49.8330039978027), (14.8418169021606, 49.8640365600586), 
+    (14.9115867614746, 49.8950691223145), (15.0, 50.0), (15.0, 50.0), (15.0, 
+    50.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[13], points=((
+    81.6576843156945, -0.712653589667752), (81.7116088867188, 
+    -0.679572343826294), (83.0906982421875, -0.547228574752808), (83.75, 
+    -0.395978212356567), (84.2053070068359, -0.301447153091431), (
+    84.507568359375, 0.0), (84.7153778076172, 0.0), (85.0, 0.0), (85.0, 0.0)))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    23.7017000636552, 34.9282133779489), point2=(27.3401346486062, 
+    37.0288645648398))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    66.3872181891929, 28.2382837668993), point2=(72.344809608534, 
+    31.6779007764999))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[18], points=((
+    44.9908543000347, 47.219512306212), (45.0, 47.5), (47.5, 46.25), (48.75, 
+    47.5), (50.0, 48.75), (52.5, 48.75), (53.75, 50.0), (53.75, 50.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], points=((
+    47.6401150666643, 17.414638732851), (47.5, 17.5), (48.75, 12.5), (48.75, 
+    10.0), (48.75, 7.5), (47.5, 5.0), (47.5, 2.5), (46.25, 0.0), (45.0, 3.75), 
+    (43.75, 7.5), (42.5, 11.25), (41.25, 13.75), (40.0, 16.25), (40.0, 17.5), (
+    40.0, 20.0), (40.0, 21.25), (38.75, 23.75), (38.75, 25.0), (38.75, 26.25), 
+    (37.5, 28.75), (36.25, 30.0), (36.25, 30.0), (38.75, 25.0), (41.25, 20.0), 
+    (41.25, 16.25), (41.25, 12.5), (41.25, 11.25), (41.25, 8.75), (41.25, 
+    6.25), (42.5, 5.0), (42.5, 2.5), (43.75, 1.25), (43.75, 0.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], points=((
+    39.9649667794583, -2.18528994877124), (40.0, -2.5), (37.5, 1.25), (36.25, 
+    2.5), (36.25, 3.75), (36.25, 3.75), (37.5, 3.75), (37.5, 5.0), (36.25, 
+    7.5), (35.0, 10.0), (33.75, 11.25), (32.5, 12.5), (33.75, 13.75), (33.75, 
+    15.0), (35.0, 15.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[18], points=((
+    21.1767692330759, 31.1938364497619), (21.25, 31.25), (22.5, 30.0), (25.0, 
+    28.75), (28.75, 27.5), (33.75, 30.0), (41.25, 33.75), (46.25, 36.25), (
+    52.5, 38.75), (58.75, 40.0), (62.5, 41.25), (65.0, 41.25), (65.0, 40.0), (
+    65.0, 37.5), (65.0, 36.25), (65.0, 35.0), (65.0, 32.5), (65.0, 35.0), (
+    65.0, 36.25), (65.0, 38.75), (65.0, 38.75), (65.0, 40.0)))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], points=((
+    33.0812731647165, 13.8922225452261), (32.5, 13.75), (35.0, 11.25), (36.25, 
+    8.75), (36.25, 7.5), (36.25, 5.0), (36.25, 3.75), (36.25, 5.0), (36.25, 
+    8.75), (36.25, 10.0), (35.0, 11.25)))
+mdb.models['Model-1'].sketches['__profile__'].dimensions[2].setValues(
+    textPoint=(30.0, 11.25))
+mdb.models['Model-1'].sketches['__profile__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], points=((
+    31.0158483526902, 8.94974897394422), (31.25, 8.75), (30.0, 10.0)))
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(0.0, 50.0), point2=(
+    15.0, 50.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[20])
+mdb.models['Model-1'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[20])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[5], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(15.0, 50.0), point2=
+    (36.070508075587, 13.5048094716039))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[6], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(36.070508075587, 
+    13.5048094716039), point2=(37.8025588833843, 14.5048094714875))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[7], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(37.8025588833843, 
+    14.5048094714875), point2=(17.3094010761706, 50.0))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[8], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(17.3094010761706, 
+    50.0), point2=(99.2820323035121, 50.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[24])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[9], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(17.3094010761706, 
+    50.0), point2=(100.0, 50.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[24])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[9], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[8])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(100.0, 50.0), 
+    point2=(100.0, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[25])
+mdb.models['Model-1'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[24], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[25])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[10], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(100.0, 0.0), point2=
+    (85.0, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[26])
+mdb.models['Model-1'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[25], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[26])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[11], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(85.0, 0.0), point2=(
+    62.6794919244421, 38.660254037808))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[12], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[13])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(62.6794919244421, 
+    38.660254037808), point2=(60.9474411169067, 37.6602540380118))
+mdb.models['Model-1'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[27], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[28])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[13], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(60.9474411169067, 
+    37.6602540380118), point2=(82.6905989234801, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[28], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[29])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[14], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[7])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(82.6905989234801, 
+    0.0), point2=(0.0, 0.0))
+mdb.models['Model-1'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[30])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[15], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[6])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(0.0, 0.0), point2=(
+    0.0, 50.0))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[31])
+mdb.models['Model-1'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[30], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[31])
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Part-1', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Part-1'].BaseSolidExtrude(depth=4.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=5.59, name='__profile__', 
+    sheetSize=223.74, transform=
+    mdb.models['Model-1'].parts['Part-1'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[12], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[16], 
+    sketchOrientation=RIGHT, origin=(49.98712, 24.987494, 4.0)))
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    -12.1845611166157, -10.4826845285125), point2=(32.7034789234801, 
+    -24.987494))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[3], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[10], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    -13.916611924413, -11.4826845283961), point2=(-22.36, -24.987494))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[2], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    12.6923719244421, 13.672760037808), point2=(-32.6777189238294, 25.012506))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[8], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16])
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    10.9603211169067, 12.6727600380118), point2=(-32.6777189238294, 25.012506))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[9], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16])
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[4], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    12.6923719244421, 13.672760037808), point2=(16.77, 25.012506))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[8], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[17])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(13.975, 
+    7.45118304398337), point2=(9.78249999998239, 14.7128060548087))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    -17.9807697035368, -0.443356765011721), point2=(-13.6471006743012, 
+    -7.94949170660108))
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[18], textPoint=(
+    -11.703256932373, 32.1954550661621), value=44.21042425941)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[17], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[18], textPoint=(
+    5.07668462646485, 36.3970465578613), value=44.2)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14], textPoint=(
+    14.3194519604492, -24.7786164365234), value=42.092640431294)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], textPoint=(
+    -14.659841862793, -26.6397576413574), value=42.1)
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-13.916611924413, 
+    -11.4826845283961), point2=(-17.1473004280758, -26.5524999997625))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[12], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-12.1845611166157, 
+    -10.4826845285125), point2=(32.7034789234801, -24.987494))
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(32.7034789234801, 
+    -24.987494), point2=(10.9603211169067, 12.6727600380118))
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(10.9603211169067, 
+    12.6727600380118), point2=(-32.6777189238294, 25.012506))
+mdb.models['Model-1'].sketches['__profile__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__profile__'].geometry[11], ))
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(12.6923719244421, 
+    13.672760037808), point2=(15.9514471691784, 26.5524999999953))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[13], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[17])
+mdb.models['Model-1'].parts['Part-1'].PartitionFaceBySketch(faces=
+    mdb.models['Model-1'].parts['Part-1'].faces.getSequenceFromMask((
+    '[#1000 ]', ), ), sketch=mdb.models['Model-1'].sketches['__profile__'], 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[16])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[8], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[39], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#2 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[27], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[42], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#4 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[25], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[3], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#8 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[24], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[42], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    210.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#8 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    300.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#4 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    -20.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#2 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    120.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    40.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#10 ]', ), )), stackDirection=STACK_3)
+mdb.ModelFromInputFile(inputFileName=
+    'C:/Users/Harry/Documents/PhD/git/mut-assignment-full/INP_FILES-STARTING_POINT/fusiform.inp'
+    , name='fusiform')
+#* Number of intervals must be greater than zero.
+mdb.models['Model-1'].Part('CUBE', mdb.models['fusiform'].parts['CUBE'])
+mdb.models['Model-1'].Instance('CUBE-1', 
+    mdb.models['fusiform'].rootAssembly.instances['CUBE-1'])
+mdb.models['Model-1'].Material('LINEAR_ELASTIC_INBUILT', 
+    mdb.models['fusiform'].materials['LINEAR_ELASTIC_INBUILT'])
+mdb.models['Model-1'].Material('LINEAR_ELASTIC_UMAT', 
+    mdb.models['fusiform'].materials['LINEAR_ELASTIC_UMAT'])
+mdb.models['Model-1'].Material('MATERIAL-3', 
+    mdb.models['fusiform'].materials['MATERIAL-3'])
+mdb.models['Model-1'].Section('Section-1-_I1', 
+    mdb.models['fusiform'].sections['Section-1-_I1'])
+mdb.models['Model-1'].Section('Section-2-_I2', 
+    mdb.models['fusiform'].sections['Section-2-_I2'])
+mdb.models['Model-1'].Section('Section-3-_I3', 
+    mdb.models['fusiform'].sections['Section-3-_I3'])
+mdb.models['Model-1'].Section('Section-4-_I4', 
+    mdb.models['fusiform'].sections['Section-4-_I4'])
+mdb.models['Model-1'].Section('Section-5-_I5', 
+    mdb.models['fusiform'].sections['Section-5-_I5'])
+mdb.models['Model-1'].Section('Section-6-_I6', 
+    mdb.models['fusiform'].sections['Section-6-_I6'])
+mdb.models['Model-1'].Section('Section-7-_I7', 
+    mdb.models['fusiform'].sections['Section-7-_I7'])
+mdb.models['Model-1'].Section('Section-8-_I8', 
+    mdb.models['fusiform'].sections['Section-8-_I8'])
+del mdb.models['Model-1'].parts['CUBE']
+del mdb.models['Model-1'].sections['Section-1-_I1']
+del mdb.models['Model-1'].sections['Section-2-_I2']
+del mdb.models['Model-1'].sections['Section-3-_I3']
+del mdb.models['Model-1'].sections['Section-4-_I4']
+del mdb.models['Model-1'].sections['Section-5-_I5']
+del mdb.models['Model-1'].sections['Section-6-_I6']
+del mdb.models['Model-1'].sections['Section-7-_I7']
+del mdb.models['Model-1'].sections['Section-8-_I8']
+mdb.models['Model-1'].HomogeneousSolidSection(material='MATERIAL-3', name=
+    'muscle', thickness=None)
+mdb.models['Model-1'].parts['Part-1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1f ]', ), )), sectionName='muscle', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.regenerate()
+#* FeatureError: Regeneration failed
+mdb.models['Model-1'].ExplicitDynamicsStep(name='Step-1', previous='Initial', 
+    timeIncrementationMethod=FIXED_USER_DEFINED_INC, timePeriod=1e-08, 
+    userDefinedInc=1e-08)
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].parts['Part-1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=2.5)
+mdb.models['Model-1'].parts['Part-1'].generateMesh()
+mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8I, elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, 
+    distortionControl=ON, lengthRatio=0.100000001490116), ElemType(
+    elemCode=C3D6, elemLibrary=EXPLICIT), ElemType(elemCode=C3D4, 
+    elemLibrary=EXPLICIT)), regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1f ]', 
+    ), ), ))
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Part-1-1', 
+    part=mdb.models['Model-1'].parts['Part-1'])
+del mdb.models['Model-1'].rootAssembly.features['CUBE-1']
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='bipennate_v2', nodalOutputPrecision=
+    SINGLE, numCpus=1, numDomains=1, parallelizationMethodExplicit=DOMAIN, 
+    queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine=
+    'C:\\Users\\Harry\\Documents\\PhD\\git\\mut-assignment-full\\HARDCODED_VUMAT\\VUMAT_muscle_hardcoded_parallel_wtends_fT_1s_homog.for'
+    , waitHours=0, waitMinutes=0)
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF, datacheckJob=True)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE PARAMETER DISTORTION CONTROL ON THE *SECTION CONTROLS OPTION IS RELEVANT FOR SOLID ELEMENTS WHEREVER APPLICABLE. THIS WARNING CAN BE IGNORED IF THE FEATURE IS APPLIED TO SOLID ELEMENTS ONLY.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '594 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 72124, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 3 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 57540, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.99999993922529e-09, 'stepTime': 0.0, 
+    'totalEnergy': 0.0, 'cpuTime': 0.0, 'jobName': 'bipennate_v2', 'step': 1, 
+    'increment': 0, 'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.0})
+mdb.jobs['bipennate_v2']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_COMPLETED, {
+    'time': 'Thu Apr 30 11:47:23 2020', 'jobName': 'bipennate_v2'})
+mdb.models['Model-1'].EncastreBC(createStepName='Initial', localCsys=None, 
+    name='BC-1', region=Region(
+    faces=mdb.models['Model-1'].rootAssembly.instances['Part-1-1'].faces.getSequenceFromMask(
+    mask=('[#2080000 ]', ), )))
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE PARAMETER DISTORTION CONTROL ON THE *SECTION CONTROLS OPTION IS RELEVANT FOR SOLID ELEMENTS WHEREVER APPLICABLE. THIS WARNING CAN BE IGNORED IF THE FEATURE IS APPLIED TO SOLID ELEMENTS ONLY.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '594 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 32048, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 3 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 74440, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.99999993922529e-09, 'stepTime': 0.0, 
+    'totalEnergy': 0.0, 'cpuTime': 0.100000001490116, 
+    'jobName': 'bipennate_v2', 'step': 1, 'increment': 0, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.0})
+mdb.jobs['bipennate_v2']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STATUS, {'totalTime': 9.99999993922529e-09, 
+    'stableTimeIncrement': 9.99999993922529e-09, 
+    'stepTime': 9.99999993922529e-09, 'totalEnergy': 1.86571786665868e-12, 
+    'cpuTime': 0.100000001490116, 'jobName': 'bipennate_v2', 'step': 1, 
+    'increment': 1, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 1.86571786665868e-12})
+mdb.jobs['bipennate_v2']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_COMPLETED, {
+    'time': 'Thu Apr 30 12:35:12 2020', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE PARAMETER DISTORTION CONTROL ON THE *SECTION CONTROLS OPTION IS RELEVANT FOR SOLID ELEMENTS WHEREVER APPLICABLE. THIS WARNING CAN BE IGNORED IF THE FEATURE IS APPLIED TO SOLID ELEMENTS ONLY.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '594 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 63544, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 3 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 25476, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.99999993922529e-09, 'stepTime': 0.0, 
+    'totalEnergy': 0.0, 'cpuTime': 0.0, 'jobName': 'bipennate_v2', 'step': 1, 
+    'increment': 0, 'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.0})
+mdb.jobs['bipennate_v2']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STATUS, {'totalTime': 9.99999993922529e-09, 
+    'stableTimeIncrement': 9.99999993922529e-09, 
+    'stepTime': 9.99999993922529e-09, 'totalEnergy': 1.86571786665868e-12, 
+    'cpuTime': 0.0, 'jobName': 'bipennate_v2', 'step': 1, 'increment': 1, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 1.86571786665868e-12})
+mdb.jobs['bipennate_v2']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_COMPLETED, {
+    'time': 'Thu Apr 30 12:37:59 2020', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2'].setValues(userSubroutine=
+    'C:\\Users\\Harry\\Documents\\PhD\\git\\mut-assignment-full\\EXTRACT_IP_NUMBERS\\code\\VUMAT_extract_IP_ELEM_numbers_new.for')
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE PARAMETER DISTORTION CONTROL ON THE *SECTION CONTROLS OPTION IS RELEVANT FOR SOLID ELEMENTS WHEREVER APPLICABLE. THIS WARNING CAN BE IGNORED IF THE FEATURE IS APPLIED TO SOLID ELEMENTS ONLY.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '594 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 32596, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 3 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 1 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 2 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 3 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 4 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 5 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 6 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 7 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 8 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 9 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 10 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 11 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 12 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 13 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 14 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 15 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 16 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 17 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 18 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 19 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 20 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 21 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 22 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 23 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 24 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 25 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 26 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 27 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 28 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 29 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 30 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 31 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 32 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 33 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 34 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 35 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 36 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 37 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 38 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 39 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 40 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 41 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 42 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 43 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 44 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 45 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 46 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 47 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 48 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 49 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 50 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE PARAMETER DISTORTION CONTROL ON THE *SECTION CONTROLS OPTION IS RELEVANT FOR SOLID ELEMENTS WHEREVER APPLICABLE. THIS WARNING CAN BE IGNORED IF THE FEATURE IS APPLIED TO SOLID ELEMENTS ONLY.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '594 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 38168, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 3 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 1 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 2 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 3 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 4 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 5 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 6 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 7 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 8 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 9 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 10 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 11 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 12 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 13 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 14 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 15 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 16 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 17 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 18 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 19 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 20 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 21 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 22 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 23 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 24 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 25 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 26 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 27 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 28 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 29 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 30 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 31 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 32 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 33 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 34 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 35 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 36 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 37 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 38 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 39 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 40 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 41 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 42 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 43 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 44 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 45 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 46 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 47 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 48 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 49 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': PACKAGER_PHASE, 
+    'message': 'Bad Material definition in element number 50 instance PART-1-1: zero or negative initial dilatational modulus caused by bad material data. Please check your material input and any initial conditions if necessary.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ABORTED, {'phase': PACKAGER_PHASE, 
+    'message': 'Analysis failed due to Errors', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'bipennate_v2'})
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].dimensions[4].setValues(value=5)
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].ConstructionLine(point1=(
+    36.9365334794857, 14.0048094715457), point2=(37.0510428014095, 
+    13.8064735079824))
+mdb.models['Model-1'].sketches['__edit__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32])
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[4], ))
+mdb.models['Model-1'].sketches['__edit__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[11], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32], textPoint=(
+    11.5375471115112, 52.8890762329102), value=2.0)
+mdb.models['Model-1'].sketches['__edit__'].DistanceDimension(entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[14], textPoint=(
+    14.8661613464355, 53.9848175048828), value=2.0)
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[8], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[9], ))
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].dimensions[4].setValues(value=4)
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[5], points=((15.0, 
+    50.0), (15.0, 50.0), (13.75, 50.0), (13.75, 50.0), (13.2760639190674, 
+    50.0), (12.982982635498, 50.0), (12.5, 50.0)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[5], points=((12.5, 
+    50.0), (12.5, 50.0), (12.7273607254028, 50.0), (12.6907005310059, 50.0), (
+    12.6687049865723, 50.0), (12.6613731384277, 50.0), (12.5, 50.0), (12.5, 
+    50.0)))
+mdb.models['Model-1'].sketches['__edit__'].Spot(point=(12.6905989234801, 50.0))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[16], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[9])
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[5], points=((12.5, 
+    50.0), (12.5, 50.0), (12.6980323791504, 50.0), (12.6833686828613, 50.0), (
+    12.5, 50.0), (12.5, 50.0)))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].constraints[87], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].vertices[16], ))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[5], points=((12.5, 
+    50.0), (12.5, 50.0), (12.6760368347168, 50.0), (12.7420244216919, 50.0), (
+    12.6833686828613, 50.0), (12.6980323791504, 50.0)))
+mdb.models['Model-1'].sketches['__edit__'].dimensions[5].setValues(value=4)
+mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+#* FeatureError: Regeneration failed
+mdb.models['Model-1'].parts['Part-1'].restore()
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].dimensions[4].setValues(value=4)
+mdb.models['Model-1'].sketches['__edit__'].dimensions[4].setValues(value=6)
+mdb.models['Model-1'].sketches['__edit__'].dimensions[5].setValues(value=6)
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[6], points=((
+    53.7503743410717, -25.1176171709521), (53.75, -25.0), (46.25, -15.0), (
+    40.0, -5.0), (36.25, 0.0), (33.75, 3.75), (33.75, 6.25), (33.75, 8.75), (
+    33.75, 10.0), (33.75, 11.25), (31.25, 12.5), (30.0, 13.75), (27.5, 13.75), 
+    (26.25, 13.75), (23.75, 13.75), (21.25, 13.75), (18.75, 13.75), (17.5, 
+    13.75), (15.0, 13.75), (12.5, 13.75), (12.5, 15.0), (13.75, 21.25), (21.25, 
+    30.0), (32.5, 38.75), (45.0, 43.75), (57.5, 42.5), (63.75, 37.5), (66.25, 
+    31.25), (60.0, 21.25), (38.75, 17.5), (26.25, 21.25), (20.0, 31.25), (35.0, 
+    40.0), (53.75, 41.25), (53.75, 35.0), (47.5, 26.25), (37.5, 25.0), (31.25, 
+    23.75), (31.25, 22.5)))
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[22], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[21], ))
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(10.3811978468439, 50.0)
+    , point2=(32.6064064608654, 11.5048094715166))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[16], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[9])
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[17], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[11])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(32.6064064608654, 
+    11.5048094715166), point2=(37.8025588833843, 14.5048094714875))
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(37.8025588833843, 
+    14.5048094714875), point2=(17.3094010761706, 50.0))
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34])
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(32.6064064608654, 
+    11.5048094715166), point2=(37.8025588833843, 14.5048094714875))
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33])
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[22], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[21], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[9], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[20]))
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(0.0, 50.0), point2=(
+    10.3811978467274, 50.0))
+mdb.models['Model-1'].sketches['__edit__'].HorizontalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__edit__'].geometry[32])
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[31], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32])
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[16], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[11])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(10.3811978467274, 50.0)
+    , point2=(32.6064064608654, 11.5048094715166))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[17], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[11])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(32.6064064608654, 
+    11.5048094715166), point2=(37.8025588833843, 14.5048094714875))
+mdb.models['Model-1'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34])
+mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+#* FeatureError: Regeneration failed
+mdb.models['Model-1'].parts['Part-1'].backup()
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'])
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], points=((
+    -14.6556738155195, -14.9301002444699), (-14.674505559082, -15.3725), (
+    -15.3725, -15.3725), (-15.3725, -15.3725)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], points=((
+    -14.2173855339061, -12.8856680684257), (-13.975, -12.5775), (-15.3725, 
+    -12.5775), (-16.1070159350586, -12.5775)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], points=((
+    -9.66923907509772, 8.32953970902599), (-9.7825, 8.385), (-15.3725, 8.385), 
+    (-16.77, 8.385), (-18.1675, 8.385)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], points=((
+    -18.4533517847303, -32.6446852774825), (-18.1675, -32.1425), (-22.36, 
+    -32.1425), (-23.7575, -32.1425)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], points=((
+    -18.6199809547397, -33.4219409127254), (-18.1675, -33.54), (-26.5525, 
+    -33.54), (-26.5525, -33.54)))
+mdb.models['Model-1'].sketches['__edit__'].ConstructionLine(point1=(
+    -17.3807135391346, -13.4826845284834), point2=(-20.9625, -33.54))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[19], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[36])
+mdb.models['Model-1'].sketches['__edit__'].ParallelConstraint(entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[36])
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[15], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[20]))
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(-17.3807135391346, 
+    -13.4826845284834), point2=(-19.9622393252794, -25.5244264635257))
+mdb.models['Model-1'].sketches['__edit__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].vertices[20], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[36])
+mdb.models['Model-1'].sketches['__edit__'].Line(point1=(16.1564735395799, 
+    15.672760037808), point2=(19.5753571118164, 28.7743315615234))
+mdb.models['Model-1'].sketches['__edit__'].ParallelConstraint(entity1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[17], entity2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[24])
+mdb.models['Model-1'].sketches['__edit__'].ParallelConstraint(addUndoState=
+    False, entity1=mdb.models['Model-1'].sketches['__edit__'].geometry[24], 
+    entity2=mdb.models['Model-1'].sketches['__edit__'].geometry[38])
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].geometry[17], 
+    mdb.models['Model-1'].sketches['__edit__'].geometry[24], 
+    mdb.models['Model-1'].sketches['__edit__'].constraints[116], 
+    mdb.models['Model-1'].sketches['__edit__'].constraints[117]))
+mdb.models['Model-1'].sketches['__edit__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[12], line2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[37], textPoint=(
+    -28.6164534960937, -20.4072938046875), value=102.099999998466)
+mdb.models['Model-1'].sketches['__edit__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[38], line2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[6], textPoint=(102.0, 
+    0.0), value=102.0)
+mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+#* FeatureError: Regeneration failed
+mdb.models['Model-1'].parts['Part-1'].backup()
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].parts['Part-1'].deleteFeatures(('Partition cell-1', 
+    'Partition cell-2', 'Partition cell-3', 'Partition cell-4'))
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+del mdb.models['Model-1'].parts['Part-1'].features['Partition face-1']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=5.59, name='__profile__', 
+    sheetSize=223.74, transform=
+    mdb.models['Model-1'].parts['Part-1'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Part-1'].faces[12], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[7], 
+    sketchOrientation=RIGHT, origin=(49.952473, 24.956138, 4.0)))
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-17.3460665391346, 
+    -13.4513285284834), point2=(-22.36, -24.956138))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[12], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[9])
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-22.36, -24.956138), 
+    point2=(-12.1499141166157, -10.4513285285125))
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(-12.1499141166157, 
+    -10.4513285285125), point2=(32.7381259234801, -24.956138))
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(10.9949681169067, 
+    12.7041160380118), point2=(-32.6430719238294, 25.043862))
+mdb.models['Model-1'].sketches['__profile__'].Line(point1=(16.1911205395799, 
+    15.704116037808), point2=(19.565, 25.043862))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[13], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[3])
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    -14.7479903278751, -11.951328528498), point2=(-9.78249999986961, 
+    -20.5518100610134))
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    13.5930443282433, 14.2041160379099), point2=(13.5930443282433, 
+    9.70571960508823))
+mdb.models['Model-1'].sketches['__profile__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['Model-1'].sketches['__profile__'].geometry[19])
+mdb.models['Model-1'].sketches['__profile__'].undo()
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(
+    13.5930443282433, 14.2041160379099), point2=(14.8745976148639, 
+    11.9844006327912))
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[18], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[15], textPoint=(
+    13.7188069072266, -24.9401639552002), value=42.0926404318323)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[14], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[18], textPoint=(
+    -13.6525882038574, -30.9843057246094), value=42.09)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[16], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], textPoint=(
+    -10.4197390827637, 28.9174581914063), value=44.2104242601465)
+mdb.models['Model-1'].sketches['__profile__'].AngularDimension(line1=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[19], line2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[17], textPoint=(
+    16.5276905742188, 20.6423269658203), value=44.21)
+mdb.models['Model-1'].parts['Part-1'].PartitionFaceBySketch(faces=
+    mdb.models['Model-1'].parts['Part-1'].faces.getSequenceFromMask((
+    '[#1000 ]', ), ), sketch=mdb.models['Model-1'].sketches['__profile__'], 
+    sketchUpEdge=mdb.models['Model-1'].parts['Part-1'].edges[7])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[0], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[33], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[25], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[39], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[30], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[3], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[27], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[38], sense=REVERSE)
+del mdb.models['Model-1'].parts['Part-1'].materialOrientations[4]
+del mdb.models['Model-1'].parts['Part-1'].materialOrientations[3]
+del mdb.models['Model-1'].parts['Part-1'].materialOrientations[2]
+del mdb.models['Model-1'].parts['Part-1'].materialOrientations[1]
+del mdb.models['Model-1'].parts['Part-1'].materialOrientations[0]
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    260.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#10 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    300.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#8 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    -20.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#4 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    120.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].MaterialOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_ANGLE, angle=
+    -120.0, axis=AXIS_3, fieldName='', localCsys=None, orientationType=SYSTEM, 
+    region=Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#2 ]', ), )), stackDirection=STACK_3)
+mdb.models['Model-1'].parts['Part-1'].materialOrientations[4].setValues(angle=
+    80.0, orientationType=SYSTEM)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['Part-1'].generateMesh()
+mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8I, elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=EXPLICIT), 
+    ElemType(elemCode=C3D4, elemLibrary=EXPLICIT)), regions=(
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1f ]', 
+    ), ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['bipennate_v2'].setValues(userSubroutine=
+    'C:\\Users\\Harry\\Documents\\PhD\\git\\mut-assignment-full\\HARDCODED_VUMAT\\VUMAT_muscle_hardcoded_arm_muttest_notri_c3d10m_MU5.for')
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': '1396 elements have missing property definitions. The elements have been identified in element set ErrElemMissingSection.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'NO SECTION DEFINITIONS FOUND', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'D:\\Temp\\bipennate_v2.odb', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ABORTED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase failed due to errors', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_ABORTED, {
+    'message': 'Analysis Input File Processor exited with an error.', 
+    'jobName': 'bipennate_v2'})
+mdb.models['Model-1'].parts['Part-1'].sectionAssignments[0].setValues(region=
+    Region(
+    cells=mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(
+    mask=('[#1f ]', ), )))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['bipennate_v2'].submit(consistencyChecking=OFF)
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '602 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'USER SUBROUTINE UMAT WILL BE USED WITH THE STAVEV ARRAY DIMENSIONED TO ZERO SINCE THE *DEPVAR OPTION IS NOT USED WITH THIS MATERIAL. CONSEQUENTLY, DEFINING STATEV ENTRIES IN SUBROUTINE UMAT WILL CAUSE CODE EXECUTION ERRORS.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 33964, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 2 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'A material defined in user subroutine VUMAT must be defined as purely elastic (using the initial elastic modulus) at the beginning of the analysis (stepTime=0). This is an informative message. It does not necessarily indicate that user subroutine VUMAT is incorrectly defined.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'MAINFRAME', 'handle': 64752, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 9.99999993922529e-09, 'stepTime': 0.0, 
+    'totalEnergy': 0.0, 'cpuTime': 0.100000001490116, 
+    'jobName': 'bipennate_v2', 'step': 1, 'increment': 0, 
+    'phase': EXPLICIT_PHASE, 'kineticEnergy': 0.0})
+mdb.jobs['bipennate_v2']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'bipennate_v2'})
+mdb.jobs['bipennate_v2']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'bipennate_v2'})
+mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].setValues(
+    depth=8.0)
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['Part-1'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['Part-1'].deleteMesh(regions=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#16 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Part-1'].seedEdgeBySize(constraint=FINER, 
+    deviationFactor=0.1, edges=
+    mdb.models['Model-1'].parts['Part-1'].edges.getSequenceFromMask((
+    '[#80000000 #1204 ]', ), ), minSizeFactor=0.1, size=1.0)
+mdb.models['Model-1'].parts['Part-1'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], nearPoint1=(
+    31.0975227355957, 14.2365875244141), nearPoint2=(34.0985107421875, 
+    12.433159828186), radius=2.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[23], nearPoint1=(
+    35.0588264465332, 12.8339223861694), nearPoint2=(36.4993019104004, 
+    16.1602439880371), radius=2.0)
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], nearPoint1=(
+    30.8174324035645, 13.915979385376), nearPoint2=(33.9384574890137, 
+    12.4732360839844), radius=4.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[23], nearPoint1=(
+    36.4192733764648, 13.6354446411133), nearPoint2=(37.0994987487793, 
+    15.5591020584106), radius=4.0)
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], nearPoint1=(
+    30.4573135375977, 14.7575778961182), nearPoint2=(34.6987075805664, 
+    12.7938451766968), radius=3.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[23], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], nearPoint1=(
+    36.4993019104004, 16.4808540344238), nearPoint2=(36.2592239379883, 
+    13.5152168273926), radius=3.0)
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[33], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], nearPoint1=(
+    31.5776805877686, 13.5152168273926), nearPoint2=(34.1785354614258, 
+    12.5133123397827), radius=2.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[23], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], nearPoint1=(
+    36.8594207763672, 16.0400161743164), nearPoint2=(36.6593551635742, 
+    13.9560546875), radius=2.0)
+mdb.models['Model-1'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    33.6983795166016, 16.6010818481445), value=0.0, vertex1=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[19], vertex2=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[24])
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[23], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[24], nearPoint1=(
+    26.4975891113281, 33.2016639709473), nearPoint2=(28.6742095947266, 
+    49.7241516113281), radius=20.0)
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[23], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[24], nearPoint1=(
+    28.4450912475586, 29.9889526367188), nearPoint2=(29.1324462890625, 
+    49.7241516113281), radius=10.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[30], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[29], nearPoint1=(
+    63.0419387817383, 0.615646362304688), nearPoint2=(74.4978485107422, 
+    14.4991264343262), radius=10.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[32], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[31], nearPoint1=(
+    7.02254486083984, 49.9536285400391), nearPoint2=(-0.309242248535156, 
+    36.9880676269531), radius=5.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[24], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[25], nearPoint1=(
+    92.025390625, 49.9536285400391), nearPoint2=(100.04451751709, 
+    46.052490234375), radius=5.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[31], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[30], nearPoint1=(
+    0.0344390869140625, 10.4832420349121), nearPoint2=(6.22063064575195, 
+    0.156686782836914), radius=10.0)
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[31], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[30], nearPoint1=(
+    0.148994445800781, 11.8601188659668), nearPoint2=(6.79342651367188, 
+    0.386167526245117), radius=10.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[25], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[24], nearPoint1=(
+    99.7008438110352, 41.3481636047363), nearPoint2=(91.5671539306641, 
+    50.18310546875), radius=10.0)
+mdb.models['Model-1'].sketches['__edit__'].FilletByRadius(curve1=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[26], curve2=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[25], nearPoint1=(
+    95.0039291381836, 0.0419483184814453), nearPoint2=(99.5862884521484, 
+    5.43470573425293), radius=5.0)
+mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].setValues(
+    sketch=mdb.models['Model-1'].sketches['__edit__'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+#* FeatureError: Regeneration failed
+mdb.models['Model-1'].parts['Part-1'].backup()
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Solid extrude-1'])
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+#* Nothing to undo.
+mdb.models['Model-1'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    39.8159190586302, 11.0175673537888), value=3.0, vertex1=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[17], vertex2=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[7])
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[2], ))
+mdb.models['Model-1'].sketches['__edit__'].delete(objectList=(
+    mdb.models['Model-1'].sketches['__edit__'].dimensions[3], ))
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[19], points=((
+    35.9923821298871, 13.4597034357139), (36.25, 13.75), (37.5, 12.5), (38.75, 
+    11.25), (38.75, 11.25)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].geometry[34], points=((
+    35.3283077344474, 13.0762999045683), (35.0, 13.75), (37.5, 12.5), (37.5, 
+    12.5), (36.25, 13.75), (35.0, 15.0), (35.0, 15.0), (35.0, 15.0)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[7], points=((
+    36.8874953738017, 16.0897459621874), (37.5, 16.25), (35.0, 15.0), (33.75, 
+    15.0), (32.5, 13.75), (32.5, 13.75), (31.25, 13.75), (32.5, 13.75), (33.75, 
+    13.75), (35.0, 15.0), (36.25, 15.0), (37.5, 15.0), (37.5, 15.0)))
+mdb.models['Model-1'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['Model-1'].sketches['__edit__'].vertices[16], points=((
+    31.6788475773398, 13.0825317547069), (31.25, 12.5), (32.5, 15.0), (33.75, 
+    16.25), (33.75, 16.25), (33.75, 17.5), (33.75, 18.75), (32.5, 22.5), (
+    28.75, 32.5), (25.0, 37.5), (20.0, 41.25), (13.75, 43.75), (8.75, 43.75), (
+    6.25, 41.25), (5.0, 37.5), (5.0, 33.75), (6.25, 33.75)))
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+mdb.models['Model-1'].sketches['__edit__'].undo()
+#* Nothing to undo.
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'].sketch)
+mdb.models['Model-1'].parts['Part-1'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['Model-1'].parts['Part-1'].features['Partition face-1'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.models['Model-1'].parts['Part-1'].regenerate()
+mdb.models['Model-1'].parts['Part-1'].deleteFeatures(('Partition cell-4', 
+    'Partition cell-3', 'Partition cell-2', 'Partition cell-1'))
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[0], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[49], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[34], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[55], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[41], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[5], sense=REVERSE)
+mdb.models['Model-1'].parts['Part-1'].PartitionCellByExtrudeEdge(cells=
+    mdb.models['Model-1'].parts['Part-1'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), edges=(mdb.models['Model-1'].parts['Part-1'].edges[39], ), line=
+    mdb.models['Model-1'].parts['Part-1'].edges[16], sense=REVERSE)

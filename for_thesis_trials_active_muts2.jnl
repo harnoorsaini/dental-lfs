@@ -1,0 +1,52 @@
+from part import *
+from material import *
+from section import *
+from optimization import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Final_Model'].parts['Left-Masseter'].materialOrientations[0].setValues(
+    axis=AXIS_1, flipNormalDirection=False, flipPrimaryDirection=False, 
+    normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, normalAxisRegion=
+    mdb.models['Final_Model'].parts['Left-Masseter'].surfaces['Surf-6'], 
+    primaryAxisDefinition=VECTOR, primaryAxisDirection=AXIS_1, 
+    primaryAxisVector=(-0.0, 0.400000005960464, -1.0))
+mdb.models['Final_Model'].parts['Left-Masseter'].Surface(name='Surf-9', 
+    side1Faces=
+    mdb.models['Final_Model'].parts['Left-Masseter'].faces.getSequenceFromMask(
+    ('[#828 ]', ), ))
+mdb.models['Final_Model'].parts['Left-Masseter'].materialOrientations[1].setValues(
+    axis=AXIS_1, flipNormalDirection=False, flipPrimaryDirection=False, 
+    normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, normalAxisRegion=
+    mdb.models['Final_Model'].parts['Left-Masseter'].surfaces['Surf-9'], 
+    primaryAxisDefinition=VECTOR, primaryAxisDirection=AXIS_1, 
+    primaryAxisVector=(-0.300000011920929, -0.174999997019768, -1.0))
+mdb.models['Final_Model'].parts['Right-Masseter'].Surface(name='Surf-7', 
+    side1Faces=
+    mdb.models['Final_Model'].parts['Right-Masseter'].faces.getSequenceFromMask(
+    ('[#188 ]', ), ))
+mdb.models['Final_Model'].parts['Right-Masseter'].materialOrientations[0].setValues(
+    axis=AXIS_1, flipNormalDirection=False, flipPrimaryDirection=False, 
+    normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, normalAxisRegion=
+    mdb.models['Final_Model'].parts['Right-Masseter'].surfaces['Surf-7'], 
+    primaryAxisDefinition=VECTOR, primaryAxisDirection=AXIS_1, 
+    primaryAxisVector=(0.0, 0.300000011920929, -1.0))
+mdb.models['Final_Model'].parts['Right-Masseter'].Surface(name='Surf-8', 
+    side1Faces=
+    mdb.models['Final_Model'].parts['Right-Masseter'].faces.getSequenceFromMask(
+    ('[#22 ]', ), ))
+mdb.models['Final_Model'].parts['Right-Masseter'].materialOrientations[1].setValues(
+    axis=AXIS_1, flipNormalDirection=False, flipPrimaryDirection=False, 
+    normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, normalAxisRegion=
+    mdb.models['Final_Model'].parts['Right-Masseter'].surfaces['Surf-8'], 
+    primaryAxisDefinition=VECTOR, primaryAxisDirection=AXIS_1, 
+    primaryAxisVector=(0.5, -0.100000001490116, -1.0))
+mdb.models['Final_Model'].rootAssembly.regenerate()
+mdb.jobs.changeKey(fromName='dental_poc_viz', toName='for_new_mass_dists')
+# Save by saini on 2020_05_04-11.50.14; build 2017 2016_09_27-23.54.59 126836

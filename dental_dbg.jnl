@@ -1,0 +1,7 @@
+# Save by saini on 2020_05_08-08.36.27; build 2017 2016_09_27-23.54.59 126836
+from abaqus import *
+upgradeMdb(
+    'C:/Users/saini/Documents/PhD_Local_C/49_Github_clone_dir/dental/dental_dbg-6.14-1.cae'
+    , 
+    'C:/Users/saini/Documents/PhD_Local_C/49_Github_clone_dir/dental/dental_dbg.cae')
+# Save by saini on 2020_05_08-08.36.27; build 2017 2016_09_27-23.54.59 126836
